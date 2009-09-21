@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.criteria4jpa</groupId>
+  <artifactId>criteria4jpa</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1-SNAPSHOT</version>
+  <name>Criteria4JPA</name>
+  <description>Hibernate Criteria API clone for JPA</description>
+  <url>http://www.criteria4jpa.org</url>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:hg:http://bitbucket.org/chkal/criteria4jpa/</connection>
+    <developerConnection>scm:hg:http://bitbucket.org/chkal/criteria4jpa/</developerConnection>
+    <url>http://bitbucket.org/chkal/criteria4jpa/src/</url>
+  </scm>
+
+  <issueManagement>
+    <system>bitbucket.org</system>
+    <url>http://bitbucket.org/chkal/criteria4jpa/issues/</url>
+  </issueManagement>
+  
+  <mailingLists>
+    <mailingList>
+      <name>criteria4jpa</name>
+      <archive>http://groups.google.com/group/criteria4jpa</archive>
+      <post>criteria4jpa@googlegroups.com</post>
+      <subscribe>criteria4jpa-subscribe@googlegroups.com</subscribe>
+      <unsubscribe>criteria4jpa-unsubscribe@googlegroups.com</unsubscribe>
+    </mailingList>
+  </mailingLists>
+
+  <developers>
+    <developer>
+      <id>ck</id>
+      <name>Christian Kaltepoth</name>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  <distributionManagement>
+    <repository>
+      <id>criteria4jpa-releases</id>
+      <name>Criteria4JPA release repository</name>
+      <url>dav:http://repository.criteria4jpa.org/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>criteria4jpa-snapshots</id>
+      <name>Criteria4JPA snapshot repository</name>
+      <url>dav:http://repository.criteria4jpa.org/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+
+      <!-- Java5 source -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+
+      <!-- create source jar -->
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- create source jar -->
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <links>
+            <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+            <link>http://java.sun.com/javaee/5/docs/api/</link>
+          </links>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+  
+  <!-- Reporting Features -->
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.6</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <version>2.4</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jdepend-maven-plugin</artifactId>
+        <version>2.0-beta-2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <linkXref>true</linkXref>
+          <targetJdk>1.6</targetJdk>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+  
+  <dependencies>
+  
+    <!-- dependency on the JPA API -->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>persistence-api</artifactId>
+      <version>1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- TestNG -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>5.10</version>
+      <classifier>jdk15</classifier>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Hibernate for integration tests -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>3.4.0.GA</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- HSQLDB for integration tests -->
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>1.8.0.10</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- DBUnit for integration tests -->
+    <dependency>
+      <groupId>org.dbunit</groupId>
+      <artifactId>dbunit</artifactId>
+      <version>2.4.5</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Logging for integration tests -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.5.8</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.5.8</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+</project>

@@ -1,0 +1,7 @@
+syntax: glob
+target
+.classpath
+.project
+.settings
+test-output
+temp-testng-customsuite.xml

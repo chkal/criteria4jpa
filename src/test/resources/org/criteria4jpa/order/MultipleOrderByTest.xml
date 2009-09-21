@@ -1,0 +1,11 @@
+<dataset>
+
+  <!-- everyone has an age of 28 -->
+  <person id="1" firstname="Hans" lastname="Mayer" age="28"/>
+  <person id="2" firstname="Christian" lastname="Kaltepoth" age="28" />
+  <person id="3" firstname="Peter" lastname="Peterson" age="28"/>
+  
+  <!-- some younger guy -->
+  <person id="4" firstname="Xavian" lastname="Peterson" age="21"/>
+  
+</dataset>

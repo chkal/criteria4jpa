@@ -1,0 +1,18 @@
+Introduction
+
+ Criteria4JPA aims to to provide a clone of the Hibernate Criteria API build
+ on top of the Java Persistence API (JPA).
+
+ The two main goals of Criteria4JPA are:
+
+  * Keep the API as close to the Hibernate Criteria API as possible.
+
+  * Require only a standard JPA environment to run.
+
+ The project is currently in an early alpha state. We will try to provide
+ snapshots of the current development on a regular basis. See
+ the the {{{roadmap.html}Roadmap}} for details on implemented
+ and planed features.
+ 
+ If you want to give Criteria4JPA a try, take a look at the 
+ {{{install.html}Installation Instructions}} to get started.

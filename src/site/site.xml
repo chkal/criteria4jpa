@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Criteria4JPA">
+
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-default-skin</artifactId>
+    <version>1.0</version>
+  </skin>
+
+  <body>
+  
+    <links>
+      <item name="Java Persistence API" href="http://java.sun.com/javaee/technologies/persistence.jsp" />
+    </links>
+
+    <menu name="Overview">
+      <item name="Introduction" href="index.html"/>
+      <item name="Discussion Forum" href="http://groups.google.com/group/criteria4jpa"/>
+      <item name="Issue Tracking" href="http://bitbucket.org/chkal/criteria4jpa/issues"/>
+      <item name="Roadmap" href="roadmap.html"/>
+    </menu>
+
+    <menu name="Quick Start">
+      <item name="Installation" href="install.html"/>
+      <item name="One Minute Tutorial" href="oneminute.html"/>
+    </menu>
+    
+    <menu ref="reports"/>
+
+  </body>
+</project>

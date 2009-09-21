@@ -1,0 +1,59 @@
+Installation
+
+ The installation of Criteria4JPA is straight forward. Criteria4JPA has
+ no library dependencies and no setup work has to be done except of adding
+ the JAR file to your classpath.
+
+* Setup with Maven
+
+ You will have to add the Criteria4JPA maven repository to your POM
+ file to be able to declare Criteria4JPA as a dependency of your project. 
+
+ Because there are no official releases yet, you will currently have to
+ use the {{{http://repository.criteria4jpa.org/snapshots/}Snapshot Repository}}:
+
+-----------------------------------------------------------------
+<repositories>
+  <repository>
+    <id>criteria4jpa-snapshots</id>
+    <name>Criteria4JPA Snapshot Repository</name>
+    <url>http://repository.criteria4jpa.org/snapshots/</url>
+    <releases>
+      <enabled>false</enabled>
+    </releases>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>
+  </repository>
+</repositories>
+-----------------------------------------------------------------
+
+ Now you can add Criteria4JPA to your dependencies:
+
+-----------------------------------------------------------------
+<dependency>
+  <groupId>org.criteria4jpa</groupId>
+  <artifactId>criteria4jpa</artifactId>
+  <version>0.1-SNAPSHOT</version>
+</dependency>
+-----------------------------------------------------------------
+
+ Please note that Criteria4JPA has only a <provided> scoped dependency to the
+ Java Persistence API.
+ 
+ 
+* Other build systems
+
+ If you are using any other build system for your project you will have
+ to manually download the required JAR file and add it to your classpath.
+ 
+ Currently the only way to get the JAR files is to download them manually
+ from the Maven repository. We will provide separate download locations
+ as soon the first official release is available.
+
+** Downloads
+
+ * Releases: {{http://repository.criteria4jpa.org/releases/org/criteria4jpa/}}
+
+ * Snapshots: {{http://repository.criteria4jpa.org/snapshots/org/criteria4jpa/}}
+    

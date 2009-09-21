@@ -1,0 +1,74 @@
+One Minute Tutorial
+
+ This small tutorial shows a minimal overview on how to get started with
+ Criteria4JPA by showing some simple examples.
+
+* Simple Queries
+
+ <<Simple "equals" expression>>
+
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.add( Restrictions.eq("firstname", "Christian") );
+List<Person> result = criteria.list();
+----------------------------------------------------------------------
+
+ <<Using LIKE expressions>>
+
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.add( Restrictions.like("firstname", "Ch", MatchMode.START) );
+List<Person> result = criteria.list();
+----------------------------------------------------------------------
+
+ <<Building BETWEEN expressions>>
+ 
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.add( Restrictions.between("age", 18, 30) );
+List<Person> result = criteria.list();
+----------------------------------------------------------------------
+
+ <<Using disjunctions to build OR restrictions>>
+
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.add( Restrictions.disjunction()
+    .add(Restrictions.eq("firstname", "Bill"))
+    .add(Restrictions.eq("firstname", "Christian"))
+);
+List<Person> result = criteria.list();
+----------------------------------------------------------------------
+
+
+* Joining associated entities
+
+ <<Inner join on associated collection>>
+
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.setProjection( Projections.distinctRootEntity() );
+Criteria subcriteria = criteria.createCriteria("addresses");
+subcriteria.add( Restrictions.eq("city", "New York") );
+List<Person> result = criteria.list();
+----------------------------------------------------------------------
+
+
+* Ordering Results
+
+ <<Ordering results by person's age>>
+
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.addOrder( Order.asc("age") );
+List<Person> result = criteria.list();
+----------------------------------------------------------------------
+
+ <<Add multiple orderings>>
+
+----------------------------------------------------------------------
+Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+criteria.addOrder( Order.desc("age") );
+criteria.addOrder( Order.asc("lastname") );
+List<Person> result = criteria.list();
+----------------------------------------------------------------------

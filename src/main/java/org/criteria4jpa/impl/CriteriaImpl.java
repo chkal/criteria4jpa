@@ -1,0 +1,161 @@
+package org.criteria4jpa.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import org.criteria4jpa.Criteria;
+import org.criteria4jpa.criterion.Criterion;
+import org.criteria4jpa.order.Order;
+import org.criteria4jpa.projection.Projection;
+
+public class CriteriaImpl implements Criteria {
+
+  // basic stuff
+  private final EntityManager entityManager;
+  private final String entityName;
+  private final String alias;
+  
+  // properties
+  private final List<MetaEntry<Criterion>> criterionList = new ArrayList<MetaEntry<Criterion>>();
+  private final List<MetaEntry<Order>> orderList = new ArrayList<MetaEntry<Order>>();
+  private final List<SubCriteriaImpl> subcriteriaList = new ArrayList<SubCriteriaImpl>();
+  private MetaEntry<Projection> projectionEntry;
+  private Integer maxResults;
+  private Integer firstResult;
+  
+
+  public CriteriaImpl(EntityManager entityManager, String name) {
+    this(entityManager, name, null);
+  }
+
+  public CriteriaImpl(EntityManager entityManager, String name, String alias) {
+    this.entityManager = entityManager;
+    this.entityName = name;
+    this.alias = alias;
+  }
+
+  /*
+   * internal
+   */
+
+  public void addOrder(Criteria criteria, Order order) {
+    this.orderList.add(new MetaEntry<Order>(criteria, order));
+  }
+  
+  public Criteria add(Criteria criteria, Criterion criterion) {
+    this.criterionList.add(new MetaEntry<Criterion>(criteria, criterion));
+    return this;
+  }
+  
+  protected Criteria createCriteria(Criteria parent, String associationPath, String alias) {
+    SubCriteriaImpl subcriteria = 
+      new SubCriteriaImpl(this, parent, associationPath, alias);
+    subcriteriaList.add(subcriteria);
+    return subcriteria;
+  }
+  
+  protected void setProjection(Criteria criteria, Projection projection) {
+    projectionEntry = new MetaEntry<Projection>(criteria, projection);
+  }
+  
+  /*
+   * interface impl
+   */
+  
+  public Criteria add(Criterion criterion) {
+    add(this, criterion);
+    return this;
+  }
+
+  public Criteria addOrder(Order order) {
+    addOrder(this, order);
+    return this;
+  }
+
+  public Criteria createCriteria(String associationPath) {
+    return createCriteria(this, associationPath, null);
+  }
+  
+  public Criteria createCriteria(String associationPath, String alias) {
+    return createCriteria(this, associationPath, alias);
+  }
+  
+  public Criteria setProjection(Projection projection) {
+    setProjection(this, projection);
+    return this;
+  }
+  
+  public Criteria setFirstResult(int firstResult) {
+    this.firstResult = Integer.valueOf(firstResult);
+    return this;
+  }
+
+  public Criteria setMaxResults(int maxResults) {
+    this.maxResults = Integer.valueOf(maxResults);
+    return this;
+  }
+  
+  
+  /*
+   * execute query
+   */
+  
+  @SuppressWarnings("unchecked")
+  public List getResultList() {
+    return buildQuery().getResultList();
+  }
+  
+  public Object getSingleResult() {
+    return buildQuery().getSingleResult();
+  }
+
+  /*
+   * internal stuff
+   */
+  
+  private Query buildQuery() {
+    CriteriaQueryBuilder queryBuilder = new CriteriaQueryBuilder(entityManager, this);
+    return queryBuilder.createQuery();
+  }
+
+  /*
+   * getter
+   */
+  
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+  
+  public Integer getFirstResult() {
+    return firstResult;
+  }
+
+  public String getEntityName() {
+    return entityName;
+  }
+
+  public String getAlias() {
+    return alias;
+  }
+
+  public List<MetaEntry<Criterion>> getCriterionList() {
+    return criterionList;
+  }
+
+  public List<MetaEntry<Order>> getOrderList() {
+    return orderList;
+  }
+
+  public List<SubCriteriaImpl> getSubcriteriaList() {
+    return subcriteriaList;
+  }
+
+  public MetaEntry<Projection> getProjectionEntry() {
+    return projectionEntry;
+  }
+
+}
+
