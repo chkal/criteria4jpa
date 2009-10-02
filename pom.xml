@@ -103,6 +103,18 @@
           </links>
         </configuration>
       </plugin>
+      
+      <!-- assembly -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>bin</descriptorRef>
+            <descriptorRef>src</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+      
 
     </plugins>
   </build>
