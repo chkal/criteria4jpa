@@ -199,5 +199,25 @@ public class Restrictions {
     return new Disjunction();
   }
 
+  /**
+   * Adds a "is empty" constraint to a <i>collection-valued relationship field</i>.
+   * 
+   * @param relativePath relative path of the collection
+   * @return {@link Criterion} instance
+   */
+  public static Criterion isEmpty(String relativePath) {
+    return new IsEmptyExpression(relativePath, false);
+  }
+
+  /**
+   * Adds a "is not empty" constraint to a <i>collection-valued relationship field</i>.
+   * 
+   * @param relativePath relative path of the collection
+   * @return {@link Criterion} instance
+   */
+  public static Criterion isNotEmpty(String relativePath) {
+    return new IsEmptyExpression(relativePath, true);
+  }
   
+
 }

@@ -1,0 +1,16 @@
+<dataset>
+
+  <person id="1" firstname="Christian" lastname="Kaltepoth"/>
+  <person id="2" firstname="Hans" lastname="Peter"/>
+  <person id="3" firstname="Bill" lastname="Gates"/>
+
+  <!-- Christian has 3 addresses -->  
+  <address id="100" person_id="1" city="London" />
+  <address id="101" person_id="1" city="New York" />
+  <address id="102" person_id="1" city="Berlin" />
+  
+  <!-- Bill has two addresses -->
+  <address id="104" person_id="3" city="Washington" />
+  <address id="105" person_id="3" city="New York" />
+  
+</dataset>
