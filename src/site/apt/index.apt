@@ -9,10 +9,21 @@ Introduction
 
   * Require only a standard JPA environment to run.
 
- The project is currently in an early alpha state. We will try to provide
- snapshots of the current development on a regular basis. See
- the the {{{roadmap.html}Roadmap}} for details on implemented
- and planed features.
+ The project is currently under heavy work and not feature complete yet. 
+ We will try to provide snapshots of the current development on a regular basis. 
+ See the the {{{roadmap.html}Roadmap}} for details on implemented and planed features.
  
  If you want to give Criteria4JPA a try, take a look at the 
- {{{install.html}Installation Instructions}} to get started.
+ {{{install.html}Installation Instructions}} and the 
+ {{{oneminute.html}One Minute Tutorial}} to get started.
+
+* New and Noteworthy
+ 
+** September 21, 2009 - First snapshots available
+ 
+ I'm pleased to announce that the first development snapshots have been deployed to the 
+ {{{http://repository.criteria4jpa.org/releases/}Maven Snapshot Repository}}.
+ If you would like to give any kind of feedback, please consider posting on the new
+ {{{http://groups.google.com/group/criteria4jpa}Discussion Forum}} or create a ticket
+ on the {{{http://bitbucket.org/chkal/criteria4jpa/issues}Issue Tracker}}.
+  
