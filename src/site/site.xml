@@ -27,6 +27,7 @@
 
     <menu name="Overview">
       <item name="Introduction" href="index.html"/>
+      <item name="Downloads" href="http://bitbucket.org/chkal/criteria4jpa/downloads/"/>
       <item name="Discussion Forum" href="http://groups.google.com/group/criteria4jpa"/>
       <item name="Issue Tracking" href="http://bitbucket.org/chkal/criteria4jpa/issues"/>
       <item name="Roadmap" href="roadmap.html"/>
