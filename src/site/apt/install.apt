@@ -6,23 +6,19 @@ Installation
 
 * Setup with Maven
 
- You will have to add the Criteria4JPA maven repository to your POM
- file to be able to declare Criteria4JPA as a dependency of your project. 
-
- Because there are no official releases yet, you will currently have to
- use the {{{http://repository.criteria4jpa.org/snapshots/}Snapshot Repository}}:
+ Just add the Criteria4JPA maven repository to your POM file like this:
 
 -----------------------------------------------------------------
 <repositories>
   <repository>
     <id>criteria4jpa-snapshots</id>
-    <name>Criteria4JPA Snapshot Repository</name>
-    <url>http://repository.criteria4jpa.org/snapshots/</url>
+    <name>Criteria4JPA Release Repository</name>
+    <url>http://repository.criteria4jpa.org/releases/</url>
     <releases>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </releases>
     <snapshots>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </snapshots>
   </repository>
 </repositories>
@@ -34,7 +30,7 @@ Installation
 <dependency>
   <groupId>org.criteria4jpa</groupId>
   <artifactId>criteria4jpa</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
 </dependency>
 -----------------------------------------------------------------
 
@@ -47,13 +43,5 @@ Installation
  If you are using any other build system for your project you will have
  to manually download the required JAR file and add it to your classpath.
  
- Currently the only way to get the JAR files is to download them manually
- from the Maven repository. We will provide separate download locations
- as soon the first official release is available.
-
-** Downloads
-
- * Releases: {{http://repository.criteria4jpa.org/releases/org/criteria4jpa/}}
-
- * Snapshots: {{http://repository.criteria4jpa.org/snapshots/org/criteria4jpa/}}
-    
+ You can always find the current version of Criteria4JPA on the
+ {{{http://bitbucket.org/chkal/criteria4jpa/downloads/} Download Page}}.
