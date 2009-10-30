@@ -1,8 +1,11 @@
 package org.criteria4jpa.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -12,11 +15,12 @@ import org.criteria4jpa.Criteria;
 import org.criteria4jpa.criterion.Criterion;
 import org.criteria4jpa.order.Order;
 import org.criteria4jpa.projection.Projection;
+import org.criteria4jpa.util.QueryLogHelper;
 import org.criteria4jpa.util.StringUtils;
 
 public class CriteriaQueryBuilder {
   
-  private final Logger log = Logger.getLogger(CriteriaQueryBuilder.class.getName());
+  private final Logger queryLogger = Logger.getLogger("org.criteria4jpa.queries");
 
   private final EntityManager entityManager;
   
@@ -59,7 +63,8 @@ public class CriteriaQueryBuilder {
   public Query createQuery() {
   
     // create for generate query
-    Query query = entityManager.createQuery(createQueryString());
+    String queryString = createQueryString();
+    Query query = entityManager.createQuery(queryString);
 
     // set max results
     if(rootCriteria.getMaxResults() != null) {
@@ -71,8 +76,21 @@ public class CriteriaQueryBuilder {
       query.setFirstResult(rootCriteria.getFirstResult());
     }
     
-    // set all parameters on the query
-    populateParameters(query);
+    // get ordered list of query parameters
+    List<Object> parameterValues = getQueryParametersAsList();
+    
+    // position 
+    int paramPosition = 1;
+
+    // loop over all values
+    for(Object value : parameterValues) {
+      query.setParameter(paramPosition++, value);
+    }    
+    
+    // log query
+    if( queryLogger.isLoggable(Level.FINE) ) {
+      queryLogger.fine( QueryLogHelper.createQueryLogMessage(queryString, parameterValues) );
+    }
     
     return query;
   }
@@ -91,8 +109,7 @@ public class CriteriaQueryBuilder {
     builder.append( ' ' );
     builder.append( createOrderByClause() );
     
-    log.fine("Query: "+builder.toString());
-    return builder.toString();
+    return builder.toString().trim();
   }
 
   private String createSelectClause() {
@@ -145,7 +162,7 @@ public class CriteriaQueryBuilder {
   
   private String createWhereClause() {
     
-    // iterate over all criterions of this criteria
+    // iterate over all criterion of this criteria
     Iterator<MetaEntry<Criterion>> iter = rootCriteria.getCriterionList().iterator();
 
     // abort if not criterion
@@ -210,13 +227,19 @@ public class CriteriaQueryBuilder {
     
   }
   
-  private void populateParameters(Query query) {
+  /**
+   * Creates an ordered list of all parameter values registered at
+   * the root criteria.
+   * 
+   * @return list of parameter values
+   */
+  private List<Object> getQueryParametersAsList() {
     
     // iterate over all restrictions of this criteria
     Iterator<MetaEntry<Criterion>> iter = rootCriteria.getCriterionList().iterator();
 
-    // position 
-    int paramPosition = 1;
+    // result list
+    List<Object> result = new ArrayList<Object>();
     
     // loop over all criterion
     while(iter.hasNext()) {
@@ -225,19 +248,21 @@ public class CriteriaQueryBuilder {
       Criterion criterion = iter.next().getEntry();
       
       // get the values to set
-      Object[] values = criterion.getParameterValues();
+      Object[] parameterValues = criterion.getParameterValues();
       
       // null should be ignores
-      if(values == null) {
+      if(parameterValues == null) {
         continue;
       }
       
       // set all parameters
-      for(Object value : values) {
-        query.setParameter(paramPosition++, value);
+      for(Object value : parameterValues) {
+        result.add( value );
       }
       
-    }    
+    }
+    
+    return result;
   }
 
   public String getAbsolutePath(Criteria c, String relativePath) {
