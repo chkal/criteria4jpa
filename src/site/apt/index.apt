@@ -17,8 +17,16 @@ Introduction
  {{{install.html}Installation Instructions}} and the 
  {{{oneminute.html}One Minute Tutorial}} to get started.
 
-* New and Noteworthy
- 
+* News
+
+** November 1, 2009 - Criteria4JPA 0.1 released
+
+ I'm very pleased to announce the release of Criteria4JPA 0.1, the first official version of Criteria4JPA. 
+ You may download the binary and the source archives on the 
+ {{{http://bitbucket.org/chkal/criteria4jpa/downloads/} Download Page}}.
+ If you are using Apache Maven, you may use the project's public maven repository. 
+ See {{{install.html}Installation Instructions}} for details.
+
 ** September 21, 2009 - First snapshots available
  
  I'm pleased to announce that the first development snapshots have been deployed to the 

@@ -4,29 +4,7 @@ Roadmap
  is currently more some kind of TODO list then a real release plan and may
  change at any point in time. 
 
-* Version 0.1
-
- * <<[DONE]>> Basic project setup
-
- * <<[DONE]>> Setup integration testing environment
- 
- * <<[DONE]>> Support for the most common Restrictions (eq, like, gt, lt, ..)
-
- * <<[DONE]>> Support for result ordering
-
- * <<[DONE]>> Basic Subcriteria (inner joins only)
- 
- * <<[DONE]>> Support for the most common Projections (distinct, property list, ..)
-
- * <<[DONE]>> Complete Javadocs
-
- * Setup issue tracker, source repository and mailing list or forum
- 
- * Test the release
- 
-
- 
-* Version 0.x - 1.0
+* Version 0.2 - 1.0
 
  * Complete implementation of all aggregate functions (avg, min, max, ...)
 
