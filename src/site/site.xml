@@ -38,6 +38,11 @@
       <item name="One Minute Tutorial" href="oneminute.html"/>
     </menu>
     
+    <menu name="Javadoc">
+      <item name="Version 0.1" href="api-0.1/index.html"/>
+      <item name="Development" href="apidocs/index.html"/>
+    </menu>
+    
     <menu ref="reports"/>
 
   </body>

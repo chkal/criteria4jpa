@@ -4,7 +4,7 @@
   <groupId>org.criteria4jpa</groupId>
   <artifactId>criteria4jpa</artifactId>
   <packaging>jar</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <name>Criteria4JPA</name>
   <description>Hibernate Criteria API clone for JPA</description>
   <url>http://www.criteria4jpa.org</url>
@@ -48,15 +48,20 @@
   </developers>
   
   <distributionManagement>
+    <site>
+      <id>criteria4jpa-site</id>
+      <name>Criteria4JPA website</name>
+      <url>scpexe://www.criteria4jpa.org:60022/home/www/criteria4jpa.org/html/</url>
+    </site>
     <repository>
       <id>criteria4jpa-releases</id>
       <name>Criteria4JPA release repository</name>
-      <url>dav:http://repository.criteria4jpa.org/releases/</url>
+      <url>scpexe://www.criteria4jpa.org:60022/home/www/criteria4jpa.org/repository/releases/</url>
     </repository>
     <snapshotRepository>
       <id>criteria4jpa-snapshots</id>
       <name>Criteria4JPA snapshot repository</name>
-      <url>dav:http://repository.criteria4jpa.org/snapshots/</url>
+      <url>scpexe://www.criteria4jpa.org:60022/home/www/criteria4jpa.org/repository/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 
