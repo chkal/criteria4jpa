@@ -4,7 +4,7 @@
   <groupId>org.criteria4jpa</groupId>
   <artifactId>criteria4jpa</artifactId>
   <packaging>jar</packaging>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
   <name>Criteria4JPA</name>
   <description>Hibernate Criteria API clone for JPA</description>
   <url>http://www.criteria4jpa.org</url>
