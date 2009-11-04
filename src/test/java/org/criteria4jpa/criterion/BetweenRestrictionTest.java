@@ -73,5 +73,26 @@ public class BetweenRestrictionTest extends AbstractIntegrationTest {
     assertEquals( result.get(0).getAge(), Integer.valueOf(50) );
   }
 
+  @Test
+  @SuppressWarnings("unchecked")
+  public void testBetweenNegatedTwiceRestriction() {
+    
+    // create criteria
+    Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+    criteria.add( Restrictions.not( Restrictions.notBetween("age", 20, 40) ) );
+    
+    // perform query
+    List<Person> result = criteria.getResultList();
+    
+    // assert result
+    assertNotNull( result );
+    assertEquals( result.size(), 2 );
+    assertEquals( result.get(0).getId(), 1l );
+    assertEquals( result.get(0).getLastname(), "Kaltepoth" );
+    assertEquals( result.get(0).getAge(), Integer.valueOf(28) );
+    assertEquals( result.get(1).getId(), 2l );
+    assertEquals( result.get(1).getLastname(), "Mayer" );
+    assertEquals( result.get(1).getAge(), Integer.valueOf(30) );
+  }
   
 }
