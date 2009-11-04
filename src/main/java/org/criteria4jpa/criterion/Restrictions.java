@@ -219,5 +219,16 @@ public class Restrictions {
     return new IsEmptyExpression(relativePath, true);
   }
   
+  /**
+   * Creates a "not" restriction. Creates a negated version of the
+   * supplied restriction.
+   * 
+   * @param criterion Restriction to negate
+   * @return {@link Criterion} instance
+   */
+  public static Criterion not(Criterion criterion) {
+    return new NotExpression(criterion);
+  }
+  
 
 }
