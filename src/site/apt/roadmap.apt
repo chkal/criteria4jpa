@@ -4,10 +4,23 @@ Roadmap
  is currently more some kind of TODO list then a real release plan and may
  change at any point in time. 
 
-* Version 0.2 - 1.0
+* Version 0.2
 
- * Complete implementation of all aggregate functions (avg, min, max, ...)
+ * <<[DONE]>> Implementation of NOT restriction
+ 
+ * <<[DONE]>> Create Restrictions.and() and Restrictions.or() for easy construction of conjunctions 
+   and disjunctions
+   
+ * Implement IN operator for collections and arrays
+ 
+ * Implementation of basic aggregate functions MAX, MIN, SUM, AVG and COUNT 
+
+* Version 0.3 - 1.0
 
  * Support for Property objects
  
+ * Subqueries
+ 
  * much more...
+ 
+ <Suggestions? Post them on the {{{http://groups.google.com/group/criteria4jpa}Discussion Forum}}!> 
