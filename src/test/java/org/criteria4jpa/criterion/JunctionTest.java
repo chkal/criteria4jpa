@@ -24,10 +24,41 @@ public class JunctionTest extends AbstractIntegrationTest {
     
     // build criteria
     Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
-    criteria.add( Restrictions.conjunction()
-        .add(Restrictions.eq("firstname", "Christian"))
-        .add(Restrictions.between("age", 20, 40))
-        .add(Restrictions.isNotNull("title"))
+    criteria.add( 
+        Restrictions.conjunction()
+            .add( Restrictions.eq("firstname", "Christian") )
+            .add( Restrictions.between("age", 20, 40) )
+            .add( Restrictions.isNotNull("title") )
+    );
+    
+    // perform query
+    List<Person> result = criteria.getResultList();
+    
+    // assert result
+    assertNotNull( result );
+    assertEquals( result.size(), 2 );
+    assertEquals( result.get(0).getId(), 1l );
+    assertEquals( result.get(0).getFirstname(), "Christian" );
+    assertEquals( result.get(0).getLastname(), "Kaltepoth" );
+
+    assertEquals( result.get(1).getId(), 3l );
+    assertEquals( result.get(1).getFirstname(), "Christian" );
+    assertEquals( result.get(1).getLastname(), "Babel" );
+
+  }
+
+  @Test
+  @SuppressWarnings("unchecked")
+  public void testAndRestriction() {
+    
+    // build criteria
+    Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+    criteria.add( 
+        Restrictions.and(
+            Restrictions.eq("firstname", "Christian"),
+            Restrictions.between("age", 20, 40),
+            Restrictions.isNotNull("title")
+        )
     );
     
     // perform query
@@ -52,9 +83,39 @@ public class JunctionTest extends AbstractIntegrationTest {
     
     // build criteria
     Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
-    criteria.add( Restrictions.disjunction()
-        .add(Restrictions.eq("firstname", "Hans"))
-        .add(Restrictions.eq("lastname", "Mayer"))
+    criteria.add( 
+        Restrictions.disjunction()
+            .add( Restrictions.eq("firstname", "Hans") )
+            .add( Restrictions.eq("lastname", "Mayer") )
+    );
+    
+    // perform query
+    List<Person> result = criteria.getResultList();
+    
+    // assert result
+    assertNotNull( result );
+    assertEquals( result.size(), 2 );
+    assertEquals( result.get(0).getId(), 2l );
+    assertEquals( result.get(0).getFirstname(), "Christian" );
+    assertEquals( result.get(0).getLastname(), "Mayer" );
+
+    assertEquals( result.get(1).getId(), 5l );
+    assertEquals( result.get(1).getFirstname(), "Hans" );
+    assertEquals( result.get(1).getLastname(), "Peterson" );
+
+  }
+
+  @Test
+  @SuppressWarnings("unchecked")
+  public void testOrRestriction() {
+    
+    // build criteria
+    Criteria criteria = CriteriaUtils.createCriteria(entityManager, Person.class);
+    criteria.add( 
+        Restrictions.or(
+            Restrictions.eq("firstname", "Hans"),
+            Restrictions.eq("lastname", "Mayer")
+        )
     );
     
     // perform query

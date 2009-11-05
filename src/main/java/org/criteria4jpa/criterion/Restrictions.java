@@ -230,5 +230,39 @@ public class Restrictions {
     return new NotExpression(criterion);
   }
   
+  /**
+   * Connects multiple restrictions with an logical conjunction.
+   * Calling this method is a shortcut for creating a {@link Conjunction}
+   * by calling {@link #conjunction()} and adding all restrictions
+   * to it.
+   * 
+   * @param criterionList The restrictions to add to the conjunction. 
+   * @return {@link Conjunction} instance
+   */
+  public static Conjunction and(Criterion... criterionList) {
+    Conjunction junction = new Conjunction();
+    for( Criterion criterion : criterionList ) {
+      junction.add( criterion );
+    }
+    return junction;
+  }
+  
+  /**
+   * Connects multiple restrictions with an logical disjunction.
+   * Calling this method is a shortcut for creating a {@link Disjunction}
+   * by calling {@link #disjunction()} and adding all restrictions
+   * to it.
+   * 
+   * @param criterionList The restrictions to add to the disjunction. 
+   * @return {@link Disjunction} instance
+   */
+  public static Disjunction or(Criterion... criterionList) {
+    Disjunction junction = new Disjunction();
+    for( Criterion criterion : criterionList ) {
+      junction.add( criterion );
+    }
+    return junction;
+  }
+  
 
 }
