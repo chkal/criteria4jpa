@@ -1,5 +1,8 @@
 package org.criteria4jpa.projection;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import org.criteria4jpa.Criteria;
 import org.criteria4jpa.CriteriaUtils;
 
@@ -147,7 +150,10 @@ public class Projections {
   
   /**
    * A projection that returns the sum of all values.
-   * The result of the query will always be a {@link Long}.
+   * The result of the query will be a {@link Long} (for integral fields), 
+   * {@link Double} (for floating point fields), 
+   * {@link BigInteger} (for BigInteger fields) or 
+   * {@link BigDecimal} (for BigDecimal fields)
    * 
    * @param relativePath relative path of a persistent field
    * @return sum of values

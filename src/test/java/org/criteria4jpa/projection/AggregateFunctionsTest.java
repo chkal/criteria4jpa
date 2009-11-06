@@ -53,7 +53,7 @@ public class AggregateFunctionsTest extends AbstractIntegrationTest {
     criteria.setProjection( Projections.sum("age") );
     
     // perform query
-    // Result will be of type Long (see specification)
+    // Result will be of type Long because 'age' is an integer
     Long result = (Long) criteria.getSingleResult();
     
     // assert correct result
