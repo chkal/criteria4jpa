@@ -1,5 +1,7 @@
 package org.criteria4jpa.criterion;
 
+import java.util.Collection;
+
 import org.criteria4jpa.Criteria;
 
 /**
@@ -264,5 +266,26 @@ public class Restrictions {
     return junction;
   }
   
+  /**
+   * Adds an "in" restriction to a persistent field.
+   * 
+   * @param relativePath relative path of the persistent field
+   * @param values expected values of the field
+   * @return {@link Criterion} instance
+   */
+  public static Criterion in(String relativePath, Object[] values) {
+    return new InExpression(relativePath, values);
+  }
+  
+  /**
+   * Adds an "in" restriction to a persistent field.
+   * 
+   * @param relativePath relative path of the persistent field
+   * @param values expected values of the field
+   * @return {@link Criterion} instance
+   */
+  public static Criterion in(String relativePath, Collection<?> values) {
+    return new InExpression(relativePath, values.toArray());
+  }
 
 }
