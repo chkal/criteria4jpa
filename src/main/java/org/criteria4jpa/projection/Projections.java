@@ -121,4 +121,51 @@ public class Projections {
     return new DistinctProjection( new RootEntityProjection() );
   }
 
+  /**
+   * A projection that returns the smallest value of a
+   * persistent field. The result of the query will have the
+   * same type as the specified field.
+   * 
+   * @param relativePath relative path of a persistent field
+   * @return smallest value
+   */
+  public static Projection min(String relativePath) {
+    return new AggregateFunctionProjection("MIN", relativePath);
+  }
+  
+  /**
+   * A projection that returns the largest value of a
+   * persistent field. The result of the query will have the
+   * same type as the specified field.
+   * 
+   * @param relativePath relative path of a persistent field
+   * @return largest value
+   */
+  public static Projection max(String relativePath) {
+    return new AggregateFunctionProjection("MAX", relativePath);
+  }
+  
+  /**
+   * A projection that returns the sum of all values.
+   * The result of the query will always be a {@link Long}.
+   * 
+   * @param relativePath relative path of a persistent field
+   * @return sum of values
+   */
+  public static Projection sum(String relativePath) {
+    return new AggregateFunctionProjection("SUM", relativePath);
+  }
+  
+  /**
+   * A projection that returns the average of all values.
+   * The result of the query will always be a {@link Double}.
+   * 
+   * @param relativePath relative path of a persistent field
+   * @return average of values
+   */
+  public static Projection avg(String relativePath) {
+    return new AggregateFunctionProjection("AVG", relativePath);
+  }
+
+
 }
