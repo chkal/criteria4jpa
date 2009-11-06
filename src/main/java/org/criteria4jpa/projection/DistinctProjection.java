@@ -1,7 +1,5 @@
 package org.criteria4jpa.projection;
 
-import org.criteria4jpa.Criteria;
-import org.criteria4jpa.impl.CriteriaQueryBuilder;
 
 /**
  * 
@@ -14,28 +12,15 @@ import org.criteria4jpa.impl.CriteriaQueryBuilder;
  * @author Christian Kaltepoth
  *
  */
-public class DistinctProjection implements Projection {
+public class DistinctProjection extends FunctionProjection {
 
-  private final Projection projection;
-  
   /**
    * creates a new "distinct" projection for a wrapped projection.
    * 
    * @param projection wrapped projection
    */
   public DistinctProjection(Projection projection) {
-    this.projection = projection;
+    super("DISTINCT", projection);
   }
-
-  /*
-   * @see org.criteria4jpa.projection.Projection#toQueryString(org.criteria4jpa.Criteria, org.criteria4jpa.impl.CriteriaQueryBuilder)
-   */
-  public String toQueryString(Criteria criteria, CriteriaQueryBuilder queryBuilder) {
-    return new StringBuilder()
-      .append("DISTINCT(")
-      .append( projection.toQueryString(criteria, queryBuilder) )
-      .append(")")
-      .toString();
-  }
-
+  
 }
