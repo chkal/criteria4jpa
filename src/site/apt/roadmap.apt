@@ -11,9 +11,11 @@ Roadmap
  * <<[DONE]>> Create Restrictions.and() and Restrictions.or() for easy construction of conjunctions 
    and disjunctions
    
- * Implement IN operator for collections and arrays
+ * <<[DONE]>> Implement IN operator for collections and arrays
  
- * Implementation of basic aggregate functions MAX, MIN, SUM, AVG and COUNT 
+ * <<[DONE]>> Implementation of the basic aggregate functions MAX, MIN, SUM and AVG
+ 
+ * Implementation of count() and rowCount() 
 
 * Version 0.3 - 1.0
 
