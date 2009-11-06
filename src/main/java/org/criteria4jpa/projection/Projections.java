@@ -133,7 +133,7 @@ public class Projections {
    * @return smallest value
    */
   public static Projection min(String relativePath) {
-    return new AggregateFunctionProjection("MIN", relativePath);
+    return new FunctionProjection("MIN", new PathProjection(relativePath, false));
   }
   
   /**
@@ -145,7 +145,7 @@ public class Projections {
    * @return largest value
    */
   public static Projection max(String relativePath) {
-    return new AggregateFunctionProjection("MAX", relativePath);
+    return new FunctionProjection("MAX", new PathProjection(relativePath, false));
   }
   
   /**
@@ -159,7 +159,7 @@ public class Projections {
    * @return sum of values
    */
   public static Projection sum(String relativePath) {
-    return new AggregateFunctionProjection("SUM", relativePath);
+    return new FunctionProjection("SUM", new PathProjection(relativePath, false));
   }
   
   /**
@@ -170,7 +170,7 @@ public class Projections {
    * @return average of values
    */
   public static Projection avg(String relativePath) {
-    return new AggregateFunctionProjection("AVG", relativePath);
+    return new FunctionProjection("AVG", new PathProjection(relativePath, false));
   }
 
 

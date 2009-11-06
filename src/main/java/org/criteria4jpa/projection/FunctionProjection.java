@@ -5,32 +5,29 @@ import org.criteria4jpa.impl.CriteriaQueryBuilder;
 
 /**
  * 
- * Class representing aggregate function projections.
+ * Class representing projection based on a function.
  * It is recommended to use the static factory methods
  * of {@link Projections} to created instances of this class.
  * 
- * @see Projections#min(String)
- * @see Projections#max(String)
- * @see Projections#sum(String)
- * @see Projections#avg(String)
+ * @see Projections
  * 
  * @author Christian Kaltepoth
  *
  */
-public class AggregateFunctionProjection implements Projection {
+public class FunctionProjection implements Projection {
 
   private final String function;
-  private final String relativePath;
+  private final Projection projection;
 
   /**
-   * creates a new aggregate function projection.
+   * creates a new projection.
    * 
-   * @param function The aggregate function to use
-   * @param relativePath relative path of a persistent field
+   * @param function The name of the function to use
+   * @param projection the inner projection
    */
-  public AggregateFunctionProjection(String function, String relativePath) {
+  public FunctionProjection(String function, Projection projection) {
     this.function = function;
-    this.relativePath = relativePath;
+    this.projection = projection;
   }
 
   /*
@@ -40,7 +37,7 @@ public class AggregateFunctionProjection implements Projection {
     return new StringBuilder()
       .append( function )
       .append( '(')
-      .append( queryBuilder.getAbsolutePath(criteria, relativePath) )
+      .append( projection.toQueryString(criteria, queryBuilder) )
       .append( ')' )
       .toString();
   }
