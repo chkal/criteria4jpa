@@ -70,13 +70,14 @@ public class AggregateFunctionsTest extends AbstractIntegrationTest {
     criteria.setProjection( Projections.avg("age") );
     
     // perform query
-    // Result will be of type Double (see specification)
-    Double result = (Double) criteria.getSingleResult();
+    // Result will be of type Double (see specification), 
+    // but OpenJPA seems to return Integer object
+    Number result = (Number) criteria.getSingleResult();
     
     // assert correct result
     assertNotNull( result );
     // (50 + 28 + 30)/3 = 36
-    assertEquals( result, Double.valueOf( 36 ) );
+    assertEquals( result.doubleValue(), Double.valueOf( 36 ) );
   }
   
 }
