@@ -91,8 +91,18 @@ public class CriteriaQueryBuilder {
     builder.append( ' ' );
     builder.append( createOrderByClause() );
     
-    log.fine("Query: "+builder.toString());
-    return builder.toString();
+    // Dirty bugfix to replace '?' with correct positional parameter like '?1'
+    StringBuilder copyBuilder = new StringBuilder();
+    int pos = 1;
+    for(char ch : builder.toString().toCharArray()) {
+      if(ch == '?') {
+        copyBuilder.append( "?" + (pos++) );
+      } else {
+        copyBuilder.append( ch );
+      }
+    }
+    log.fine("Query: "+copyBuilder.toString());
+    return copyBuilder.toString();
   }
 
   private String createSelectClause() {
