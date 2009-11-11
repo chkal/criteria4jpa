@@ -32,9 +32,8 @@ public class DistinctProjection implements Projection {
    */
   public String toQueryString(Criteria criteria, CriteriaQueryBuilder queryBuilder) {
     return new StringBuilder()
-      .append("DISTINCT(")
+      .append("DISTINCT ")
       .append( projection.toQueryString(criteria, queryBuilder) )
-      .append(")")
       .toString();
   }
 
