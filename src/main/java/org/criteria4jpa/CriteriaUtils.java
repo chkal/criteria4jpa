@@ -1,5 +1,6 @@
 package org.criteria4jpa;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 
 import org.criteria4jpa.criterion.Criterion;
@@ -21,6 +22,13 @@ public class CriteriaUtils {
    * Creates a new {@link Criteria} query for a entity class.
    * </p>
    * 
+   * <p>
+   * Please note that the entity name is deduced from the unqualified class name.
+   * You should use {@link #createCriteria(EntityManager, String)}
+   * if you have changed the entity name by using the <code>name</code> attribute 
+   * of the {@link Entity} annotation.
+   * </p>
+   * 
    * @param entityManager {@link EntityManager} for query creation
    * @param persistentClass persistent class
    * @return new {@link Criteria} query
@@ -28,7 +36,7 @@ public class CriteriaUtils {
   public static Criteria createCriteria(EntityManager entityManager, 
       Class<?> persistentClass) {
     errorIfClosed(entityManager);
-    return new CriteriaImpl( entityManager, persistentClass.getName() );
+    return new CriteriaImpl( entityManager, persistentClass.getSimpleName() );
   }
 
   /**
@@ -54,6 +62,13 @@ public class CriteriaUtils {
    * {@link Order} instances.
    * </p>
    * 
+   * <p>
+   * Please note that the entity name is deduced from the unqualified class name.
+   * You should use {@link #createCriteria(EntityManager, Class, String)}
+   * if you have changed the entity name by using the <code>name</code> attribute 
+   * of the {@link Entity} annotation.
+   * </p>
+   * 
    * @param entityManager {@link EntityManager} for query creation
    * @param persistentClass persistent class
    * @param alias alias to set for the criteria
@@ -61,7 +76,7 @@ public class CriteriaUtils {
    */
   public static Criteria createCriteria(EntityManager entityManager, 
       Class<?> persistentClass, String alias) {
-    return new CriteriaImpl( entityManager, persistentClass.getName(), alias);
+    return new CriteriaImpl( entityManager, persistentClass.getSimpleName(), alias);
   }
   
   /**
