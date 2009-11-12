@@ -39,6 +39,7 @@
     </menu>
     
     <menu name="Javadoc">
+      <item name="Version 0.1.1" href="api-0.1.1/index.html"/>
       <item name="Version 0.1" href="api-0.1/index.html"/>
       <item name="Development" href="apidocs/index.html"/>
     </menu>

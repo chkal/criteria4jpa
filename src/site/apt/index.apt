@@ -19,6 +19,14 @@ Introduction
 
 * News
 
+** November 12, 2009 - Criteria4JPA 0.1.1 released
+
+ Today Criteria4JPA 0.1.1 has been released. This is a bugfix release containing patches regarding
+ major incompatibilities with {{{http://openjpa.apache.org/}OpenJPA}} and 
+ {{{http://www.eclipse.org/eclipselink/}EclipseLink}} that have been discovered while working 
+ on new integration tests for the development version. If you are currently using 
+ Criteria4JPA 0.1 you should be able to update to version 0.1.1 without any migration issues.  
+
 ** November 1, 2009 - Criteria4JPA 0.1 released
 
  I'm very pleased to announce the release of Criteria4JPA 0.1, the first official version of Criteria4JPA. 
