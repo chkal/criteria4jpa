@@ -54,6 +54,11 @@ public abstract class AbstractIntegrationTest extends AbstractTest {
       entityManager = createEntityManager("org.apache.openjpa.persistence.PersistenceProviderImpl");
     }
     
+    // Toplink
+    else if( selectedProvider.equals( "toplink" )) {
+      entityManager = createEntityManager("oracle.toplink.essentials.PersistenceProvider");
+    }
+    
     // Eclipse Link
     else if( selectedProvider.equals("eclipselink") ) {
       entityManager = createEntityManager("org.eclipse.persistence.jpa.PersistenceProvider");
