@@ -28,7 +28,7 @@
       <property name="openjpa.ConnectionPassword" value=""/>
       <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
 
-      <!-- Toplink -->
+      <!-- Toplink Essentials configuration -->
       <property name="toplink.jdbc.driver" value="org.hsqldb.jdbcDriver" />
       <property name="toplink.jdbc.url" value="jdbc:hsqldb:mem:testdb" />
       <property name="toplink.jdbc.user" value="sa" />
@@ -36,6 +36,7 @@
       <property name="toplink.target-database" value="HSQL"/>
       <property name="toplink.ddl-generation" value="drop-and-create-tables"/>
       <property name="toplink.ddl-generation.output-mode" value="database"/>
+      <property name="toplink.cache.type.default" value="NONE"/>
       
       <!-- EclipseLink configuration -->
       <property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
@@ -45,6 +46,7 @@
       <property name="eclipselink.target-database" value="HSQL"/>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
       <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+      <property name="eclipselink.cache.type.default" value="NONE"/>
 
     </properties>
   </persistence-unit>
