@@ -43,7 +43,8 @@ public class InExpression implements Criterion {
     builder.append( queryBuilder.getAbsolutePath(criteria, relativePath) );
     builder.append( " IN (");
     
-    // append parameters
+    // We must add each value as a parameter, because not all JPA
+    // implementations allow lists or arrays as parameters.
     if( values != null ) {
       for( int i = 0; i < values.length; i++) {
         builder.append('?');
