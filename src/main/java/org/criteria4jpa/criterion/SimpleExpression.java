@@ -45,7 +45,8 @@ public class SimpleExpression implements Criterion {
     builder.append( queryBuilder.getAbsolutePath(criteria, relativePath) );
     builder.append( ' ' );
     builder.append( op );
-    builder.append( " ?" );
+    builder.append( ' ' );
+    builder.append( queryBuilder.createPositionalParameter() );
     return builder.toString();
   }
 

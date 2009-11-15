@@ -47,7 +47,7 @@ public class InExpression implements Criterion {
     // implementations allow lists or arrays as parameters.
     if( values != null ) {
       for( int i = 0; i < values.length; i++) {
-        builder.append('?');
+        builder.append( queryBuilder.createPositionalParameter() );
         if( i < values.length - 1 ) {
           builder.append(',');
         }

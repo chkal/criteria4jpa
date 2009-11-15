@@ -29,6 +29,8 @@ public class CriteriaQueryBuilder {
   private final Map<Criteria, String> criterionToAliasMap = 
     new HashMap<Criteria, String>();
   
+  private int positionalParameterCounter = 1;
+  
   public CriteriaQueryBuilder(EntityManager entityManager, CriteriaImpl rootCriteria) {
     this.entityManager = entityManager;
     this.rootCriteria = rootCriteria;
@@ -108,19 +110,8 @@ public class CriteriaQueryBuilder {
     builder.append( createWhereClause() );
     builder.append( ' ' );
     builder.append( createOrderByClause() );
-    
-    // Dirty bugfix to replace '?' with correct positional parameter like '?1'
-    StringBuilder copyBuilder = new StringBuilder();
-    int pos = 1;
-    for(char ch : builder.toString().toCharArray()) {
-      if(ch == '?') {
-        copyBuilder.append( "?" + (pos++) );
-      } else {
-        copyBuilder.append( ch );
-      }
-    }
-    return copyBuilder.toString();
-    
+
+    return builder.toString().trim();
   }
 
   private String createSelectClause() {
@@ -290,6 +281,13 @@ public class CriteriaQueryBuilder {
 
   public CriteriaImpl getRootCriteria() {
     return rootCriteria;
+  }
+  
+  /**
+   * Creates a positional parameter for a JPQL query.
+   */
+  public String createPositionalParameter() {
+    return "?" + (positionalParameterCounter++);
   }
 
 }

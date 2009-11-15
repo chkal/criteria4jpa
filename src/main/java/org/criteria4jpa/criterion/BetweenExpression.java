@@ -46,7 +46,10 @@ public class BetweenExpression implements Criterion {
     if(negate) {
       builder.append( " NOT" );
     }
-    builder.append( " BETWEEN ? AND ?" );
+    builder.append( " BETWEEN " );
+    builder.append( queryBuilder.createPositionalParameter() );
+    builder.append( " AND " );
+    builder.append( queryBuilder.createPositionalParameter() );
     return builder.toString();
   }
 
