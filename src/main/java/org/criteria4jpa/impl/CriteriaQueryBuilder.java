@@ -53,7 +53,8 @@ public class CriteriaQueryBuilder {
     for( SubCriteriaImpl subcriteria : rootCriteria.getSubcriteriaList() ) {
       String alias = subcriteria.getAlias();
       if(alias == null) {
-        alias = StringUtils.generateAlias("sub", counter++, null);
+        String lastPathComponent = StringUtils.getLastPathComponent(subcriteria.getPath());
+        alias = StringUtils.generateAlias(lastPathComponent, counter++, "sub");
       }
       String old = criterionToAliasMap.put(subcriteria, alias);
       if(old != null) {

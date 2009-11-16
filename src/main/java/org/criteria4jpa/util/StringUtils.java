@@ -52,5 +52,21 @@ public class StringUtils {
     // return the result
     return builder.toString();
   }
+  
+  /**
+   * Returns the last component of a dot-separated path.
+   * 
+   * @param path relative or absolute path expression
+   * @return last component of path expression
+   */
+  public static String getLastPathComponent(String path) {
+    
+    // find last '.' character
+    int pos = path.lastIndexOf('.');
+    
+    // return the last path component
+    // or the complete path, if no '.' chars were found
+    return pos >= 0 ? path.substring(pos + 1) : path;
+  }
 
 }
