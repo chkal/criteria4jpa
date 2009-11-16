@@ -21,9 +21,10 @@ public class StringUtils {
    * 
    * @param basename a base name that will be used for alias creation
    * @param counter A unique number
+   * @param fallback An optional fallback name
    * @return the generated JPQL alias
    */
-  public static String generateAlias(String basename, int counter) {
+  public static String generateAlias(String basename, int counter, String fallback) {
     
     // build trimmed and lower case version of the base name
     String lowerCaseBaseName = basename.trim().toLowerCase(Locale.ENGLISH);
@@ -38,7 +39,11 @@ public class StringUtils {
     
     // add some default keyword, if builder is still empty
     if( builder.length() == 0 ) {
-      builder.append( "default" );
+      if(fallback != null && fallback.length() > 0) {
+        builder.append( fallback );
+      } else {
+        builder.append( "default" );
+      }
     }
     
     // finally append the counter to get uniqueness
