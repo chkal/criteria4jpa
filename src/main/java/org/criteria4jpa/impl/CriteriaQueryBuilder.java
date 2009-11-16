@@ -45,7 +45,7 @@ public class CriteriaQueryBuilder {
     // add alias for root criteria
     String rootAlias = rootCriteria.getAlias();
     if(rootAlias == null) {
-      rootAlias = StringUtils.generateAlias("root", counter++);
+      rootAlias = StringUtils.generateAlias(rootCriteria.getEntityName(), counter++);
     }
     criterionToAliasMap.put(rootCriteria, rootAlias);
     
