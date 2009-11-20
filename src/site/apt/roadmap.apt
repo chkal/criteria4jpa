@@ -15,7 +15,7 @@ Roadmap
  
  * <<[DONE]>> Implementation of the basic aggregate functions MAX, MIN, SUM and AVG
  
- * Implementation of count() and rowCount() 
+ * <<[DONE]>> Implementation of count() and rowCount() 
 
 * Version 0.3 - 1.0
 
