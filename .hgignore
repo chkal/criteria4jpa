@@ -5,3 +5,4 @@ target
 .settings
 test-output
 temp-testng-customsuite.xml
+*DDL.jdbc
