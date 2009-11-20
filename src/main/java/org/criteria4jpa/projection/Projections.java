@@ -130,7 +130,7 @@ public class Projections {
    * same type as the specified field.
    * 
    * @param relativePath relative path of a persistent field
-   * @return smallest value
+   * @return new projection instance
    */
   public static Projection min(String relativePath) {
     return new FunctionProjection("MIN", new PathProjection(relativePath, false));
@@ -142,7 +142,7 @@ public class Projections {
    * same type as the specified field.
    * 
    * @param relativePath relative path of a persistent field
-   * @return largest value
+   * @return new projection instance
    */
   public static Projection max(String relativePath) {
     return new FunctionProjection("MAX", new PathProjection(relativePath, false));
@@ -156,7 +156,7 @@ public class Projections {
    * {@link BigDecimal} (for BigDecimal fields)
    * 
    * @param relativePath relative path of a persistent field
-   * @return sum of values
+   * @return new projection instance
    */
   public static Projection sum(String relativePath) {
     return new FunctionProjection("SUM", new PathProjection(relativePath, false));
@@ -167,7 +167,7 @@ public class Projections {
    * The result of the query will always be a {@link Double}.
    * 
    * @param relativePath relative path of a persistent field
-   * @return average of values
+   * @return new projection instance
    */
   public static Projection avg(String relativePath) {
     return new FunctionProjection("AVG", new PathProjection(relativePath, false));
