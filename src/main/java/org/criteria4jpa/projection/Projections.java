@@ -172,6 +172,124 @@ public class Projections {
   public static Projection avg(String relativePath) {
     return new FunctionProjection("AVG", new PathProjection(relativePath, false));
   }
+  
+  /**
+   * Creates a count projection for the specified relative path.
+   * In most cases you can may use {@link #count(String)}
+   * or {@link #countDistinct(String)} instead of this method.
+   * The result of the query will always be a {@link Long}.
+   * 
+   * @param projection nested projection
+   * @return new projection instance
+   */
+  public static CountProjection count(Projection projection) {
+    return new CountProjection(projection);
+  }
 
+  /**
+   * <p>
+   * Creates a count projection for the specified relative path.
+   * </p>
+   * 
+   * <p>
+   * Calling the method is the same as manually chaining calls to {@link #count(Projection)} 
+   * and {@link #relativePath(String)}.
+   * </p> 
+   * 
+   * <p>
+   * The result of the query will always be a {@link Long}.
+   * </p>
+   * 
+   * @param relativePath relative path
+   * @return new projection instance
+   */
+  public static CountProjection count(String relativePath) {
+    return new CountProjection(
+        new PathProjection(relativePath, false)
+    );
+  }
+  
+  /**
+   * <p>
+   * Creates a "count distinct" projection for the specified relative path.
+   * </p>
+   * 
+   * <p>
+   * Calling the method is the same as manually chaining calls to {@link #count(Projection)}, 
+   * {@link #distinct(Projection)} and {@link #relativePath(String)}.
+   * </p> 
+   * 
+   * <p>
+   * The result of the query will always be a {@link Long}.
+   * </p>
+   * 
+   * @param relativePath relative path
+   * @return new projection instance
+   */
+  public static CountProjection countDistinct(String relativePath) {
+    return new CountProjection(
+        new DistinctProjection(
+            new PathProjection(relativePath, false)
+        )
+    );
+  }
 
+  /**
+   * <p>
+   * Creates a count projection for the root entity of the criteria.
+   * </p>
+   * 
+   * <p>
+   * You will get the number of root entities matching the criteria as a result.
+   * Please note that you should use {@link #rowCountDistinct()} to get the 
+   * expected result the criteria creates joins on collection-valued relationship fields.
+   * </p>
+   * 
+   * <p>
+   * Calling the method is the same as manually chaining calls to {@link #count(Projection)} 
+   * and {@link #rootEntity()}.
+   * </p> 
+   * 
+   * <p>
+   * The result of the query will always be a {@link Long}.
+   * </p>
+   * 
+   * @return new projection instance
+   */
+  public static Projection rowCount() {
+    return new CountProjection(
+        new RootEntityProjection()
+    );
+  }
+
+  /**
+   * <p>
+   * Creates a "count distinct" projection for the root entity of the criteria.
+   * </p>
+   * 
+   * <p>
+   * You will get the number of root entities matching the criteria as a result.
+   * It is recommended to use this method instead of {@link #rowCount()}, 
+   * when the criteria creates joins on collection-valued relationship fields.
+   * </p>
+   * 
+   * <p>
+   * Calling the method is the same as manually chaining calls to {@link #count(Projection)},
+   * {@link #distinct(Projection)} and {@link #rootEntity()}.
+   * </p> 
+   * 
+   * <p>
+   * The result of the query will always be a {@link Long}.
+   * </p>
+   * 
+   * @return new projection instance
+   */
+  public static Projection rowCountDistinct() {
+    return new CountProjection(
+        new DistinctProjection(
+            new RootEntityProjection()
+        )
+    );
+  }
+  
 }
