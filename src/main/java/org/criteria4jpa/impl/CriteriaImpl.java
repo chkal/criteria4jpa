@@ -50,9 +50,10 @@ public class CriteriaImpl implements Criteria {
     return this;
   }
   
-  protected Criteria createCriteria(Criteria parent, String associationPath, String alias) {
+  protected Criteria createCriteria(Criteria parent, String associationPath, 
+      String alias, JoinType joinType) {
     SubCriteriaImpl subcriteria = 
-      new SubCriteriaImpl(this, parent, associationPath, alias);
+      new SubCriteriaImpl(this, parent, associationPath, alias, joinType);
     subcriteriaList.add(subcriteria);
     return subcriteria;
   }
@@ -76,11 +77,19 @@ public class CriteriaImpl implements Criteria {
   }
 
   public Criteria createCriteria(String associationPath) {
-    return createCriteria(this, associationPath, null);
+    return createCriteria(this, associationPath, null, JoinType.INNER_JOIN);
+  }
+  
+  public Criteria createCriteria(String associationPath, JoinType joinType) {
+    return createCriteria(this, associationPath, null, joinType);
   }
   
   public Criteria createCriteria(String associationPath, String alias) {
-    return createCriteria(this, associationPath, alias);
+    return createCriteria(this, associationPath, alias, JoinType.INNER_JOIN);
+  }
+
+  public Criteria createCriteria(String associationPath, String alias, JoinType joinType) {
+    return createCriteria(this, associationPath, alias, joinType);
   }
   
   public Criteria setProjection(Projection projection) {

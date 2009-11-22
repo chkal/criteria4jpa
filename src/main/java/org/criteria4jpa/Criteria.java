@@ -44,6 +44,23 @@ import org.criteria4jpa.projection.Projections;
  *
  */
 public interface Criteria {
+  
+  /**
+   * Specifies a JOIN type. 
+   */
+  public enum JoinType {
+    
+    /**
+     * Performs an INNER JOIN
+     */
+    INNER_JOIN,
+    
+    /**
+     * Performs a LEFT OUTER JOIN
+     */
+    LEFT_OUTER_JOIN
+    
+  }
 
   /**
    * Returns the alias of the entity referred to by this criteria instance.
@@ -115,12 +132,40 @@ public interface Criteria {
    * the supplied <i>path expression</i>. Creates a JPA query
    * containing an equivalent join expression. If you want
    * to assign an alias to the joined entity, use 
-   * {@link #createCriteria(String, String)} instead.
+   * {@link #createCriteria(String, String)} instead. 
+   * This method will perform a {@link JoinType#INNER_JOIN}.
    *
    * @param relativePath The path expression to the associated entity
    * @return the created subcriteria
    */
   public Criteria createCriteria(String relativePath);
+  
+  /**
+   * Creates a subcriteria on the associated entity named by
+   * the supplied <i>path expression</i>. Creates a JPA query
+   * containing an equivalent join expression. If you want
+   * to assign an alias to the joined entity, use 
+   * {@link #createCriteria(String, String)} instead.
+   *
+   * @param relativePath The path expression to the associated entity
+   * @param joinType The type of join to perform
+   * @return the created subcriteria
+   */
+  public Criteria createCriteria(String relativePath, JoinType joinType);
+
+  /**
+   * Creates a subcriteria on the associated entity named by
+   * the supplied <i>path expression</i>. Creates a JPA query
+   * containing an equivalent join expression. Assigns the
+   * given alias to the joined entity. If you don't need to
+   * manually set an alias, use may use {@link #createCriteria(String)}
+   * instead. This method will perform a {@link JoinType#INNER_JOIN}.
+   *
+   * @param relativePath The path expression to the associated entity
+   * @param alias The alias assigned to the joined entity
+   * @return the created subcriteria
+   */
+  public Criteria createCriteria(String relativePath, String alias);
 
   /**
    * Creates a subcriteria on the associated entity named by
@@ -132,9 +177,10 @@ public interface Criteria {
    *
    * @param relativePath The path expression to the associated entity
    * @param alias The alias assigned to the joined entity
+   * @param joinType The type of join to perform
    * @return the created subcriteria
    */
-  public Criteria createCriteria(String relativePath, String alias);
+  public Criteria createCriteria(String relativePath, String alias, JoinType joinType);
   
   /**
    * Set a {@link Projection} for the query. Using a {@link Projection}

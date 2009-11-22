@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.criteria4jpa.Criteria;
+import org.criteria4jpa.Criteria.JoinType;
 import org.criteria4jpa.criterion.Criterion;
 import org.criteria4jpa.order.Order;
 import org.criteria4jpa.projection.Projection;
@@ -152,8 +153,18 @@ public class CriteriaQueryBuilder {
 
     // process all subcriteria
     for(SubCriteriaImpl subcriteria : rootCriteria.getSubcriteriaList()) {
+      
+      // absolute join path
       String joinPath = getAbsolutePath(subcriteria.getParent(), subcriteria.getPath());
-      builder.append(" JOIN ");
+      
+      // append correct join expression
+      if(subcriteria.getJoinType() == JoinType.INNER_JOIN) {
+        builder.append(" JOIN ");
+      }
+      else if(subcriteria.getJoinType() == JoinType.LEFT_OUTER_JOIN) {
+        builder.append(" LEFT JOIN ");
+      }
+      
       builder.append( joinPath );
       builder.append(' ');
       builder.append( getRequiredAlias(subcriteria) );

@@ -14,17 +14,23 @@ public class SubCriteriaImpl implements Criteria {
   private final Criteria parent;
   private final String path;
   private final String alias;
-  
+  private final JoinType joinType;
+
   /**
-   * constructor
-   * @param parent parent criteria
-   * @param alias alias for this subcriteria
+   * Creates a new {@link SubCriteriaImpl}
+   * @param root Reference to the root criteria
+   * @param parent Reference to parent criteria
+   * @param path relative path to the references entity or collection
+   * @param alias Custom alias for this subcriteria (may be <code>null</code>)
+   * @param joinType The type of join to perform
    */
-  public SubCriteriaImpl(CriteriaImpl root, Criteria parent, String path, String alias) {
+  public SubCriteriaImpl(CriteriaImpl root, Criteria parent, String path, 
+      String alias, JoinType joinType) {
     this.root = root;
     this.parent = parent;
     this.path = path;
     this.alias = alias;
+    this.joinType = joinType;
   }
 
   /*
@@ -65,11 +71,19 @@ public class SubCriteriaImpl implements Criteria {
   }
 
   public Criteria createCriteria(String associationPath) {
-    return createCriteria(associationPath, null);
+    return root.createCriteria(this, associationPath, null, JoinType.INNER_JOIN);
+  }
+  
+  public Criteria createCriteria(String associationPath, JoinType joinType) {
+    return root.createCriteria(this, associationPath, null, joinType);
   }
 
   public Criteria createCriteria(String associationPath, String alias) {
-    return root.createCriteria(this, associationPath, alias);
+    return root.createCriteria(this, associationPath, alias, JoinType.INNER_JOIN);
+  }
+  
+  public Criteria createCriteria(String associationPath, String alias, JoinType joinType) {
+    return root.createCriteria(this, associationPath, alias, joinType);
   }
   
   public Criteria setProjection(Projection projection) {
@@ -89,4 +103,7 @@ public class SubCriteriaImpl implements Criteria {
     return root;
   }
 
+  public JoinType getJoinType() {
+    return joinType;
+  }
 }
