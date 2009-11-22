@@ -15,7 +15,11 @@ Roadmap
  
  * <<[DONE]>> Implementation of the basic aggregate functions MAX, MIN, SUM and AVG
  
- * <<[DONE]>> Implementation of count() and rowCount() 
+ * <<[DONE]>> Implementation of count() and rowCount()
+  
+ * <<[DONE]>> Add support for different join types
+ 
+ * Improve javadoc documentation 
 
 * Version 0.3 - 1.0
 
