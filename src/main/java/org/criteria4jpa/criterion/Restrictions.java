@@ -84,6 +84,37 @@ public class Restrictions {
   public static SimpleExpression like(String relativePath, String value, MatchMode matchMode) {
     return new SimpleExpression(relativePath, matchMode.toMatchString(value), "LIKE" );
   }
+
+
+  /**
+   * Adds a case-insensitive "like" constraint to a <i>persistent field</i>. 
+   * This method expects the value to already contain the required wildcard characters.
+   * Alternatively you can call {@link #ilike(String, String, MatchMode)
+   * to let the restriction add the wildcards.
+   * 
+   * @param relativePath relative path of the string field
+   * @param value the match string
+   * @return {@link Criterion} instance
+   */
+  public static Criterion ilike(String relativePath, String value) {
+    return new ILikeExpression(relativePath, value);
+  }
+  
+  /**
+   * Adds a case-insensitive "like" constraint to a <i>persistent field</i>. 
+   * This method requires a {@link MatchMode} to specify how wildcards are added
+   * to the value. You may also use {@link #like(String, String)} if you
+   * want to manually specify the wildcards in the match string.
+   * 
+   * @param relativePath relative path of the string field
+   * @param value the match string
+   * @param matchMode specifies how to add wildcards to the value to create
+   *   the LIKE expression
+   * @return {@link Criterion} instance
+   */
+  public static Criterion ilike(String relativePath, String value, MatchMode matchMode) {
+    return new ILikeExpression(relativePath, matchMode.toMatchString(value));
+  }  
   
   /**
    * Adds a "greater than" constraint to a <i>persistent field</i>.
