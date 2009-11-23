@@ -1,6 +1,8 @@
 package org.criteria4jpa.criterion;
 
 import java.util.Collection;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.criteria4jpa.Criteria;
 
@@ -286,6 +288,29 @@ public class Restrictions {
    */
   public static Criterion in(String relativePath, Collection<?> values) {
     return new InExpression(relativePath, values.toArray());
+  }
+
+  /**
+   * <p>
+   * Creates a conjunction of "equals" restrictions for each 
+   * entry in the map.
+   * </p>
+   * 
+   * <p>
+   * Same as manually creating a conjunction via {@link #conjunction()}
+   * and adding an equals restriction via {@link #eq(String, Object)} for
+   * each map entry.
+   * </p>
+   * 
+   * @param values Map containing property name to value mappings
+   * @return {@link Conjunction} of "equal" constraints
+   */
+  public static Criterion allEq(Map<String,Object> values) {
+    Conjunction conjunction = new Conjunction();
+    for( Entry<String, Object> entry : values.entrySet() ) {
+      conjunction.add( eq(entry.getKey(), entry.getValue()) );
+    }
+    return conjunction;
   }
 
 }
