@@ -344,4 +344,43 @@ public class Restrictions {
     return conjunction;
   }
 
+  /**
+   * <p>
+   * This method allows to create a restriction from a custom
+   * JPQL query fragment.
+   * </p>
+   * 
+   * <p>
+   * You may use the following set of variables in the query.
+   * They will be replaced by the correct values when the query
+   * is generated.
+   * </p>
+   * 
+   * <ul>
+   *   <li>
+   *     <code>{alias}</code>: The alias of the criteria's entity that the
+   *       restriction is added to.
+   *   </li>
+   *   <li>
+   *     <code>{1}</code>, <code>{2}</code>, <code>{3}</code>...:
+   *       The positional parameters that are generated for the supplied
+   *       parameter values.
+   *   </li>
+   * </ul>
+   * 
+   * <p>Example:</p>
+   * 
+   * <pre>
+   * Restrictions.jpqlRestriction( 
+   *   "{alias}.firstname LIKE {1} AND {alias}.age BETWEEN {2} AND {3}", "Chr%", 40, 80)
+   * </pre>
+   * 
+   * @param jpql The JPQL query fragment
+   * @param value The parameters to add to the generated query
+   * @return new {@link Criterion} instance
+   */
+  public static Criterion jpqlRestriction(String jpql, Object... value) {
+    return new JPQLExpression(jpql, value );
+  }
+  
 }
