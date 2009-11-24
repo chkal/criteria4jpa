@@ -382,5 +382,27 @@ public class Restrictions {
   public static Criterion jpqlRestriction(String jpql, Object... value) {
     return new JPQLExpression(jpql, value );
   }
+ 
+  /**
+   * Creates a "member of" restriction.
+   * 
+   * @param relativePath relative path of a collection
+   * @param value The value to check membership for
+   * @return new {@link Criterion} instance
+   */
+  public static Criterion memberOf(String relativePath, Object value) {
+    return new MemberOfExpression(relativePath, value, false);
+  }
+  
+  /**
+   * Creates a "not member of" restriction.
+   * 
+   * @param relativePath relative path of a collection
+   * @param value The value to check membership for
+   * @return new {@link Criterion} instance
+   */
+  public static Criterion notMemberOf(String relativePath, Object value) {
+    return new MemberOfExpression(relativePath, value, true);
+  }
   
 }
