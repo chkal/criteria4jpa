@@ -1,0 +1,52 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    
+  <!-- Basic document properties -->
+  <properties>
+    <title>Criteria4JPA</title>
+    <author>Christian Kaltepoth</author>
+  </properties>
+  
+  <!-- Begin body -->
+  <body>
+
+    <!-- Criteria4JPA 0.1.1 -->  
+    <release version="0.1.1" date="2009-11-12" 
+        description="Bugfix release addressing incompatibilities with some JPA implementations">
+      <action dev="chkal" type="fix">
+        Fixed CriteriaUtils to create correct entity names from class objects 
+      </action>
+      <action dev="chkal" type="fix">
+        Fixed parameter creation to generate valid positional parameters
+      </action>
+      <action dev="chkal" type="fix">
+        Fixed DISTINCT projection to render correct syntax
+      </action>
+    </release>
+
+  
+    <!-- Criteria4JPA 0.1 -->  
+    <release version="0.1" date="2009-11-01" description="First public release">
+      <action dev="chkal" type="add">
+        Simple criteria creation via CriteriaUtils class
+      </action>
+      <action dev="chkal" type="add">
+        Support for the most common restrictions (=, !=, &lt;, &gt;, ..)
+      </action>
+      <action dev="chkal" type="add">
+        Added support for custom ordering of query results
+      </action>
+      <action dev="chkal" type="add">
+        Basic support for subcriteria (inner joins only)
+      </action>
+      <action dev="chkal" type="add">
+        Support for the most common projections (distinct, property list, ..)
+      </action>
+      <action dev="chkal" type="add" issue="1">
+        Added isEmpty() restriction
+      </action>
+    </release>
+
+  </body>
+</document>
