@@ -11,6 +11,35 @@
   <!-- Begin body -->
   <body>
 
+    <!-- Criteria4JPA development -->  
+    <release version="development" date="not released yet" description="Current development version">
+      <action dev="chkal" type="add">
+        Implementation if case-insensitive LIKE expressions
+      </action>
+      <action dev="chkal" type="add">
+        Added IN restriction for arrays and collections
+      </action>
+      <action dev="chkal" type="add">
+        Added support for MEMBER OF restrictions
+      </action>
+      <action dev="chkal" type="add">
+        Support for custom JPQL restrictions
+      </action>
+      <action dev="chkal" type="add">
+        Simpler junction creation with new factory methods and() and or() 
+      </action>
+      <action dev="chkal" type="add">
+        Added allEq() factory method for creation of conjunctions containing only
+        EQUALS restrictions
+      </action>
+      <action dev="chkal" type="add">
+        Added COUNT projection and some handy factory methods 
+      </action>
+      <action dev="chkal" type="add">
+        Implementation of aggregate functions MAX, MIN, AVG and SUM
+      </action>
+    </release>
+      
     <!-- Criteria4JPA 0.1.1 -->  
     <release version="0.1.1" date="2009-11-12" 
         description="Bugfix release addressing incompatibilities with some JPA implementations">
