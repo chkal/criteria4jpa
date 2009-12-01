@@ -225,6 +225,7 @@
       <groupId>toplink.essentials</groupId>
       <artifactId>toplink-essentials</artifactId>
       <version>2.1-60f</version>
+      <scope>test</scope>
     </dependency>
 
     <!-- EclipseLink -->
