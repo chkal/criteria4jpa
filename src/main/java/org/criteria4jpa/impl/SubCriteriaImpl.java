@@ -66,6 +66,10 @@ public class SubCriteriaImpl implements Criteria {
     return root.getSingleResult();
   }
 
+  public Object getSingleResultOrNull() {
+    return root.getSingleResultOrNull();
+  }
+  
   public String getAlias() {
     return alias;
   }

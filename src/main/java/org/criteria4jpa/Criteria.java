@@ -2,6 +2,7 @@ package org.criteria4jpa;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import org.criteria4jpa.criterion.Criterion;
@@ -120,13 +121,35 @@ public interface Criteria {
 
   
   /**
-   * Generates a {@link Query} from the {@link Criteria} instances
-   * and calls {@link Query#getSingleResult()}.
+   * <p>
+   * Generates a {@link Query} from the criteria instances
+   * and calls {@link Query#getSingleResult()} on it.
+   * </p>
    *
-   * @return the single result or <code>null</code>
+   * @return result of {@link Query#getSingleResult()}
    */
   public Object getSingleResult();
 
+  /**
+   * <p>
+   * Generates a {@link Query} from the criteria instances
+   * and calls {@link Query#getSingleResult()} on it.
+   * </p>
+   * 
+   * <p>
+   * If the underlying call to {@link Query#getSingleResult()} results
+   * in a {@link NoResultException} it will be automatically catched
+   * and <code>null</code> will be returned.
+   * </p>
+   * 
+   * <p>
+   * Use {@link #getSingleResult()} if you want standard JPA behavior.
+   * </p>
+   *
+   * @return result of {@link Query#getSingleResult()} or <code>null</code>
+   */
+  public Object getSingleResultOrNull();
+  
   /**
    * Creates a subcriteria on the associated entity named by
    * the supplied <i>path expression</i>. Creates a JPA query

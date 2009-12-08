@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import org.criteria4jpa.Criteria;
@@ -121,6 +122,14 @@ public class CriteriaImpl implements Criteria {
     return buildQuery().getSingleResult();
   }
 
+  public Object getSingleResultOrNull() {
+    try {
+      return getSingleResult();
+    } catch (NoResultException e) {
+      return null;
+    }
+  }
+  
   /*
    * internal stuff
    */

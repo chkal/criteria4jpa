@@ -38,6 +38,10 @@
       <action dev="chkal" type="add">
         Implementation of aggregate functions MAX, MIN, AVG and SUM
       </action>
+      <action dev="chkal" type="add">
+        Added Criteria.getSingleResultOrNull() method that returns null for an empty
+        result instead of throwing a NoResultException
+      </action>
     </release>
       
     <!-- Criteria4JPA 0.1.1 -->  
