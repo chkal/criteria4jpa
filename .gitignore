@@ -1,4 +1,3 @@
-syntax: glob
 target
 .classpath
 .project
@@ -6,3 +5,4 @@ target
 test-output
 temp-testng-customsuite.xml
 *DDL.jdbc
+bin
