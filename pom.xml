@@ -17,14 +17,14 @@
   </licenses>
 
   <scm>
-    <connection>scm:hg:http://bitbucket.org/chkal/criteria4jpa/</connection>
-    <developerConnection>scm:hg:http://bitbucket.org/chkal/criteria4jpa/</developerConnection>
-    <url>http://bitbucket.org/chkal/criteria4jpa/src/</url>
+    <connection>scm:git:http://github.com/chkal/criteria4jpa.git</connection>
+    <developerConnection>scm:git:git@github.com:chkal/criteria4jpa.git</developerConnection>
+    <url>http://github.com/chkal/criteria4jpa/tree/master</url>
   </scm>
 
   <issueManagement>
-    <system>bitbucket.org</system>
-    <url>http://bitbucket.org/chkal/criteria4jpa/issues/</url>
+    <system>github</system>
+    <url>http://github.com/chkal/criteria4jpa/issues</url>
   </issueManagement>
   
   <mailingLists>
@@ -179,7 +179,7 @@
         </reportSets>
         <configuration>
           <!-- Using this depreciated parameter because issueLinkTemplatePerSystem doesn't work -->
-          <issueLinkTemplate>http://bitbucket.org/chkal/criteria4jpa/issue/%ISSUE%</issueLinkTemplate>
+          <issueLinkTemplate>http://github.com/chkal/criteria4jpa/issues/%ISSUE%</issueLinkTemplate>
         </configuration>
       </plugin>
     </plugins>

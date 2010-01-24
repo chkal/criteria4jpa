@@ -31,7 +31,7 @@ Introduction
 
  I'm very pleased to announce the release of Criteria4JPA 0.1, the first official version of Criteria4JPA. 
  You may download the binary and the source archives on the 
- {{{http://bitbucket.org/chkal/criteria4jpa/downloads/} Download Page}}.
+ {{{http://github.com/chkal/criteria4jpa/downloads} Download Page}}.
  If you are using Apache Maven, you may use the project's public maven repository. 
  See {{{install.html}Installation Instructions}} for details.
 
@@ -41,5 +41,5 @@ Introduction
  {{{http://repository.criteria4jpa.org/releases/}Maven Snapshot Repository}}.
  If you would like to give any kind of feedback, please consider posting on the new
  {{{http://groups.google.com/group/criteria4jpa}Discussion Forum}} or create a ticket
- on the {{{http://bitbucket.org/chkal/criteria4jpa/issues}Issue Tracker}}.
+ on the {{{http://github.com/chkal/criteria4jpa/issues}Issue Tracker}}.
   

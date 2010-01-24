@@ -76,7 +76,7 @@
       <action dev="chkal" type="add">
         Support for the most common projections (distinct, property list, ..)
       </action>
-      <action dev="chkal" type="add" issue="1">
+      <action dev="chkal" type="add">
         Added isEmpty() restriction
       </action>
     </release>

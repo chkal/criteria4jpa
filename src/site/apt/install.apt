@@ -44,7 +44,7 @@ Installation
  to manually download the required JAR file and add it to your classpath.
  
  You can always find the current version of Criteria4JPA on the
- {{{http://bitbucket.org/chkal/criteria4jpa/downloads/} Download Page}}.
+ {{{http://github.com/chkal/criteria4jpa/downloads} Download Page}}.
 
 
 * Development snapshots
