@@ -51,17 +51,17 @@
     <site>
       <id>criteria4jpa-site</id>
       <name>Criteria4JPA website</name>
-      <url>scpexe://www.criteria4jpa.org:60022/home/www/criteria4jpa.org/html/</url>
+      <url>scpexe://www.criteria4jpa.org/home/www/criteria4jpa.org/htdocs/</url>
     </site>
     <repository>
       <id>criteria4jpa-releases</id>
       <name>Criteria4JPA release repository</name>
-      <url>scpexe://www.criteria4jpa.org:60022/home/www/criteria4jpa.org/repository/releases/</url>
+      <url>scpexe://www.criteria4jpa.org/home/www/criteria4jpa.org/repository/releases/</url>
     </repository>
     <snapshotRepository>
       <id>criteria4jpa-snapshots</id>
       <name>Criteria4JPA snapshot repository</name>
-      <url>scpexe://www.criteria4jpa.org:60022/home/www/criteria4jpa.org/repository/snapshots/</url>
+      <url>scpexe://www.criteria4jpa.org/home/www/criteria4jpa.org/repository/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 
