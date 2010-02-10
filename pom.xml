@@ -56,12 +56,12 @@
     <repository>
       <id>criteria4jpa-releases</id>
       <name>Criteria4JPA release repository</name>
-      <url>scpexe://www.criteria4jpa.org/home/www/criteria4jpa.org/repository/releases/</url>
+      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
     </repository>
     <snapshotRepository>
       <id>criteria4jpa-snapshots</id>
       <name>Criteria4JPA snapshot repository</name>
-      <url>scpexe://www.criteria4jpa.org/home/www/criteria4jpa.org/repository/snapshots/</url>
+      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
