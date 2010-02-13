@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.spi.PersistenceProvider;
 
 import org.dbunit.DatabaseUnitException;
@@ -42,10 +43,10 @@ public abstract class AbstractIntegrationTest extends AbstractTest {
   public void initDatabase() {
 
     // check for JPA provider system property
-    String selectedProvider = System.getProperty(JPA_PROVIDER_KEY, "hibernate");
+    String selectedProvider = System.getProperty(JPA_PROVIDER_KEY, "default");
     
-    // Hiberate (default)
-    if( selectedProvider.equals("hibernate") ) {
+    // Hibernate (default)
+    if( selectedProvider.equals( "hibernate" ) ) {
       entityManager = createEntityManager("org.hibernate.ejb.HibernatePersistence");
     }
     
@@ -54,7 +55,7 @@ public abstract class AbstractIntegrationTest extends AbstractTest {
       entityManager = createEntityManager("org.apache.openjpa.persistence.PersistenceProviderImpl");
     }
     
-    // Toplink
+    // Toplink Essentials
     else if( selectedProvider.equals( "toplink" )) {
       entityManager = createEntityManager("oracle.toplink.essentials.PersistenceProvider");
     }
@@ -64,9 +65,9 @@ public abstract class AbstractIntegrationTest extends AbstractTest {
       entityManager = createEntityManager("org.eclipse.persistence.jpa.PersistenceProvider");
     }
     
-    // fail in every other case
+    // auto-detect provider
     else {
-      fail("Unknown JPA provider: "+selectedProvider);
+      entityManager = createEntityManager(null);
     }
     
     // populate database
@@ -105,14 +106,26 @@ public abstract class AbstractIntegrationTest extends AbstractTest {
   private static EntityManager createEntityManager(String providerClazz) {
     
     try {
+
+      // the EntityManagerFactory
+      EntityManagerFactory factory = null;
       
-      // create provider
-      PersistenceProvider provider = 
-        (PersistenceProvider) Class.forName(providerClazz).newInstance();
-      
-      // use provider to create EntityManagerFactory
-      EntityManagerFactory factory = 
-        provider.createEntityManagerFactory(PERSISTENCE_UNIT, null);
+      // Do we want to use a specific provider?
+      if( providerClazz != null ) {
+        
+        // create provider from class name
+        PersistenceProvider provider = 
+          (PersistenceProvider) Class.forName(providerClazz).newInstance();
+        
+        // use this provider to create EntityManagerFactory
+        factory = provider.createEntityManagerFactory(PERSISTENCE_UNIT, null);
+        
+      } else {
+        
+        // create factory by auto-detecting the provider
+        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT, null);
+        
+      }
       
       // build EntityManager
       return factory.createEntityManager();
