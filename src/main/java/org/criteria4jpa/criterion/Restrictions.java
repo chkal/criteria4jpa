@@ -89,7 +89,7 @@ public class Restrictions {
   /**
    * Adds a case-insensitive "like" constraint to a <i>persistent field</i>. 
    * This method expects the value to already contain the required wildcard characters.
-   * Alternatively you can call {@link #ilike(String, String, MatchMode)
+   * Alternatively you can call {@link #ilike(String, String, MatchMode)}
    * to let the restriction add the wildcards.
    * 
    * @param relativePath relative path of the string field
