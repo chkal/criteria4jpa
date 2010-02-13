@@ -41,9 +41,12 @@
     <developer>
       <id>chkal</id>
       <name>Christian Kaltepoth</name>
+      <email>christian@kaltepoth.de</email>
+      <url>http://chkal.blogspot.com/</url>
       <roles>
         <role>developer</role>
       </roles>
+      <timezone>+1</timezone>
     </developer>
   </developers>
   
