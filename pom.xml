@@ -268,7 +268,13 @@
     </profile>
 
     <!-- Toplink Essentials -->
-    <!-- required repository: http://download.java.net/maven/1 -->
+    <!-- 
+      <repository>
+        <id>java.net</id>
+        <url>http://download.java.net/maven/1</url>
+        <layout>legacy</layout>
+      </repository>
+    -->
     <profile>
       <id>toplink</id>
       <dependencies>
@@ -282,7 +288,12 @@
     </profile>
 
     <!-- EclipseLink -->
-    <!-- required repository: http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo -->
+    <!--
+      <repository>
+        <id>eclipselink</id>
+        <url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
+      </repository>
+    -->
     <profile>
       <id>eclipselink</id>
       <dependencies>
