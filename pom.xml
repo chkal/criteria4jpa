@@ -90,17 +90,6 @@
           </links>
         </configuration>
       </plugin>
-      
-      <!-- assembly -->
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>bin</descriptorRef>
-            <descriptorRef>src</descriptorRef>
-          </descriptorRefs>
-        </configuration>
-      </plugin>
 
     </plugins>
   </build>
@@ -305,9 +294,9 @@
       </dependencies>
     </profile>
 
-    <!-- Sign -->
+    <!-- Release profile -->
     <profile>
-      <id>release-sign-artifacts</id>
+      <id>criteria4jpa-release</id>
       <activation>
         <property>
           <name>performRelease</name>
@@ -316,6 +305,8 @@
       </activation>
       <build>
         <plugins>
+        
+          <!-- Sign -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
@@ -329,6 +320,27 @@
               </execution>
             </executions>
           </plugin>
+      
+          <!-- assembly -->
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>make-assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>assembly</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>bin</descriptorRef>
+                <descriptorRef>src</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </plugin>
+                    
         </plugins>
       </build>
     </profile>
