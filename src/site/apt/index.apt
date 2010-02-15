@@ -19,6 +19,28 @@ Introduction
 
 * News
 
+** February 15, 2010 - Criteria4JPA 0.2 released
+
+ Criteria4JPA 0.2 has been released. You can get the new version from our
+ {{{http://github.com/chkal/criteria4jpa/downloads} Download Page}} or directly 
+ from the {{{http://repo1.maven.org/maven2/}Maven Central Repository}}. 
+ Please refer to the {{{install.html}Installation Instructions}} for details.
+ 
+ This version contains several new features like:
+ 
+  * Case-insensitive LIKE expressions
+ 
+  * Support for IN and MEMBER OF expressions
+ 
+  * A new COUNT projection
+ 
+  * Implementation of all major aggregate functions (AVG, MIN, MAX, ...)
+  
+  * Possibility to add custom JPQL restrictions to you criteria
+
+
+ See the {{{changes-report.html}Changelog}} for details on all new features of the current version. 
+
 ** November 12, 2009 - Criteria4JPA 0.1.1 released
 
  Today Criteria4JPA 0.1.1 has been released. This is a bugfix release containing patches regarding
