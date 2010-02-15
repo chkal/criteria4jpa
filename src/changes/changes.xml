@@ -13,6 +13,11 @@
 
     <!-- Criteria4JPA development -->  
     <release version="development" date="not released yet" description="Current development version">
+      <!-- Nothing yet -->
+    </release>
+
+    <!-- Criteria4JPA 0.2 -->
+    <release version="0.2" date="2010-02-14" description="New major release">
       <action dev="chkal" type="add">
         Implementation if case-insensitive LIKE expressions
       </action>
