@@ -4,23 +4,6 @@ Roadmap
  is currently more some kind of TODO list then a real release plan and may
  change at any point in time. 
 
-* Version 0.2
-
- * <<[DONE]>> Implementation of NOT restriction
- 
- * <<[DONE]>> Create Restrictions.and() and Restrictions.or() for easy construction of conjunctions 
-   and disjunctions
-   
- * <<[DONE]>> Implement IN operator for collections and arrays
- 
- * <<[DONE]>> Implementation of the basic aggregate functions MAX, MIN, SUM and AVG
- 
- * <<[DONE]>> Implementation of count() and rowCount()
-  
- * <<[DONE]>> Add support for different join types
- 
- * Improve javadoc documentation 
-
 * Version 0.3 - 1.0
 
  * Support for Property objects
