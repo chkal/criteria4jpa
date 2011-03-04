@@ -41,4 +41,11 @@ public class FunctionProjection implements Projection {
       .append( ')' )
       .toString();
   }
+
+  /*
+   * @see org.criteria4jpa.projection.Projection#toGroupByString(org.criteria4jpa.Criteria, org.criteria4jpa.impl.CriteriaQueryBuilder)
+   */
+  public String toGroupByString(Criteria criteria, CriteriaQueryBuilder queryBuilder) {
+    return null;
+  }
 }

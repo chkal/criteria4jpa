@@ -60,6 +60,46 @@ public class ProjectionList implements Projection {
     return builder.toString();
   }
   
+  /*
+   * @see org.criteria4jpa.projection.Projection#toGroupByString(org.criteria4jpa.Criteria, org.criteria4jpa.impl.CriteriaQueryBuilder)
+   */
+  public String toGroupByString(Criteria criteria, CriteriaQueryBuilder queryBuilder) {
+
+    // query builder
+    StringBuilder builder = new StringBuilder();
+    
+    // iterate over all projections from the list
+    Iterator<Projection> iter = projectionList.iterator();
+    while( iter.hasNext() ) {
+      Projection projection = iter.next();
+      
+      // call toGroupByString() on child
+      String groupBy = projection.toGroupByString(criteria, queryBuilder);
+      
+      // add only if result is not null
+      if(groupBy != null && groupBy.trim().length() > 0) {
+
+        // first add a comma if the builder already contains something
+        if(builder.length() > 0) {
+          builder.append(",");
+        }
+        
+        // add group by expression of child
+        builder.append(groupBy);
+      
+      }
+
+    }
+
+    // return result if something has been written to the builder
+    String result = builder.toString().trim();
+    if(result.length() > 0) {
+      return result;
+    }
+    
+    return null;
+  }
+
   /**
    * Adds another projection to the list of wrapped projections.
    * 

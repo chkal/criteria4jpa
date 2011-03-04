@@ -53,6 +53,18 @@ public class Projections {
   public static Projection property(String relativePath) {
     return relativePath(relativePath);
   }
+
+  /**
+   * This method only exists for compatibility with the 
+   * <i>Hibernate Criteria API</i> and simply delegates the call
+   * to {@link #relativeGroupPath(String)}.
+   * 
+   * @param relativePath relative path expression of a field
+   * @return new projection instance
+   */
+  public static Projection groupProperty(String relativePath) {
+    return relativeGroupPath(relativePath);
+  }
   
   /**
    * <p>
@@ -70,10 +82,60 @@ public class Projections {
    * @return new projection instance
    */
   public static Projection relativePath(String path) {
-    return new PathProjection(path, false);
+    return new PathProjection(path, false, false);
   }
 
+  /**
+   * <p>
+   * This projection can be used if you want the criteria to
+   * return a certain <i>persistent field</i> or a
+   * <i>single-valued relationship field</i>. 
+   * </p>
+   * 
+   * <p>
+   * This projects creates a grouping by adding the field
+   * to the GROUP BY clause of the query.
+   * </p>
+   * 
+   * <p>
+   * Please note that the path expression must be relative to 
+   * the criteria this projection is added to.
+   * </p>
+   * 
+   * @param path relative path expression
+   * @return new projection instance
+   */
+  public static Projection relativeGroupPath(String path) {
+    return new PathProjection(path, false, true);
+  }
   
+  /**
+   * <p>
+   * This projection can be used if you want the criteria to
+   * return a certain <i>persistent field</i> or a
+   * <i>single-valued relationship field</i>. 
+   * </p>
+   * 
+   * <p>
+   * This projects creates a grouping by adding the field
+   * to the GROUP BY clause of the query.
+   * </p>
+   * 
+   * <p>
+   * Please note that the path expression must be absolute 
+   * meaning that it has to start with an alias created.
+   * </p>
+   * 
+   * @see CriteriaUtils#createCriteria(javax.persistence.EntityManager, Class, String)
+   * @see Criteria#createCriteria(String, String)
+   * 
+   * @param path absolute path expression
+   * @return new projection instance
+   */
+  public static Projection absolutePath(String path) {
+    return new PathProjection(path, false, false);
+  }
+
   /**
    * <p>
    * This projection can be used if you want the criteria to
@@ -92,11 +154,10 @@ public class Projections {
    * @param path absolute path expression
    * @return new projection instance
    */
-  public static Projection absolutePath(String path) {
-    return new PathProjection(path, false);
+  public static Projection absoluteGroupPath(String path) {
+    return new PathProjection(path, false, true);
   }
 
-  
   /**
    * Creates a projection referring to the root entity of the
    * criteria hierarchy it is added to.
@@ -133,7 +194,7 @@ public class Projections {
    * @return new projection instance
    */
   public static Projection min(String relativePath) {
-    return new FunctionProjection("MIN", new PathProjection(relativePath, false));
+    return new FunctionProjection("MIN", new PathProjection(relativePath, false, false));
   }
   
   /**
@@ -145,7 +206,7 @@ public class Projections {
    * @return new projection instance
    */
   public static Projection max(String relativePath) {
-    return new FunctionProjection("MAX", new PathProjection(relativePath, false));
+    return new FunctionProjection("MAX", new PathProjection(relativePath, false, false));
   }
   
   /**
@@ -159,7 +220,7 @@ public class Projections {
    * @return new projection instance
    */
   public static Projection sum(String relativePath) {
-    return new FunctionProjection("SUM", new PathProjection(relativePath, false));
+    return new FunctionProjection("SUM", new PathProjection(relativePath, false, false));
   }
   
   /**
@@ -170,7 +231,7 @@ public class Projections {
    * @return new projection instance
    */
   public static Projection avg(String relativePath) {
-    return new FunctionProjection("AVG", new PathProjection(relativePath, false));
+    return new FunctionProjection("AVG", new PathProjection(relativePath, false, false));
   }
   
   /**
@@ -205,7 +266,7 @@ public class Projections {
    */
   public static CountProjection count(String relativePath) {
     return new CountProjection(
-        new PathProjection(relativePath, false)
+        new PathProjection(relativePath, false, false)
     );
   }
   
@@ -229,7 +290,7 @@ public class Projections {
   public static CountProjection countDistinct(String relativePath) {
     return new CountProjection(
         new DistinctProjection(
-            new PathProjection(relativePath, false)
+            new PathProjection(relativePath, false, false)
         )
     );
   }

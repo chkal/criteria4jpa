@@ -19,6 +19,7 @@ public class PathProjection implements Projection {
 
   private final String path;
   private final boolean absolute;
+  private final boolean grouped;
 
   /**
    * Creates a new instance of a path projection.
@@ -27,9 +28,10 @@ public class PathProjection implements Projection {
    * @param absolute <code>true</code> if <i>path</i> is an absolute path,
    *    <code>false</code> if <i>path</i> is relative
    */
-  public PathProjection(String path, boolean absolute) {
+  public PathProjection(String path, boolean absolute, boolean grouped) {
     this.path = path;
     this.absolute = absolute;
+    this.grouped = grouped;
   }
   
   /*
@@ -41,6 +43,20 @@ public class PathProjection implements Projection {
     } else {
       return queryBuilder.getAbsolutePath(criteria, path);
     }
+  }
+
+  /*
+   * @see org.criteria4jpa.projection.Projection#toGroupByString(org.criteria4jpa.Criteria, org.criteria4jpa.impl.CriteriaQueryBuilder)
+   */
+  public String toGroupByString(Criteria criteria, CriteriaQueryBuilder queryBuilder) {
+    if(grouped) {
+      if(absolute) {
+        return path;
+      } else {
+        return queryBuilder.getAbsolutePath(criteria, path);
+      }
+    }
+    return null;
   }
 
 }

@@ -111,6 +111,8 @@ public class CriteriaQueryBuilder {
     builder.append( ' ' );
     builder.append( createWhereClause() );
     builder.append( ' ' );
+    builder.append( createGroupByClause() );
+    builder.append( ' ' );
     builder.append( createOrderByClause() );
 
     return builder.toString().trim();
@@ -205,6 +207,27 @@ public class CriteriaQueryBuilder {
     return builder.toString();
   }
 
+  private String createGroupByClause() {
+    
+    if(rootCriteria.getProjectionEntry() != null) {
+      
+      // get required objects to render projection
+      Projection projection = rootCriteria.getProjectionEntry().getEntry();
+      Criteria projectionCriteria = rootCriteria.getProjectionEntry().getCriteria();
+      
+      // render group by properties
+      String groupByString = projection.toGroupByString(projectionCriteria, this);
+      if( groupByString != null && groupByString.trim().length() > 0) {
+        return "GROUP BY "+groupByString.trim();
+      }
+      
+    }
+    
+    // no group by
+    return "";
+    
+  }
+  
   private String createOrderByClause() {
 
     // get iterator for order objects

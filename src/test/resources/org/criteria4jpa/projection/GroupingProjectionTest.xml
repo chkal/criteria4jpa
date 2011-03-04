@@ -1,0 +1,7 @@
+<dataset>
+
+  <person id="1" firstname="Christian" lastname="Kaltepoth" age="28"/>
+  <person id="2" firstname="Christian" lastname="Mayer"  age="30"/>
+  <person id="3" firstname="Hans" lastname="Peterson" age="50"/>
+
+</dataset>

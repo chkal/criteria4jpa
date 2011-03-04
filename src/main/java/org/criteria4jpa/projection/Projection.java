@@ -36,4 +36,6 @@ public interface Projection {
  
   public String toQueryString(Criteria criteria, CriteriaQueryBuilder queryBuilder);
 
+  public String toGroupByString(Criteria criteria, CriteriaQueryBuilder queryBuilder);
+
 }
