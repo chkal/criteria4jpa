@@ -61,6 +61,8 @@ public class Projections {
    * 
    * @param relativePath relative path expression of a field
    * @return new projection instance
+   * @since 0.3
+   *
    */
   public static Projection groupProperty(String relativePath) {
     return relativeGroupPath(relativePath);
@@ -104,6 +106,7 @@ public class Projections {
    * 
    * @param path relative path expression
    * @return new projection instance
+   * @since 0.3
    */
   public static Projection relativeGroupPath(String path) {
     return new PathProjection(path, false, true);
@@ -153,6 +156,7 @@ public class Projections {
    * 
    * @param path absolute path expression
    * @return new projection instance
+   * @since 0.3
    */
   public static Projection absoluteGroupPath(String path) {
     return new PathProjection(path, false, true);
@@ -285,6 +289,7 @@ public class Projections {
    * @param type
    *          The class to use for the constructor expression.
    * @return new projection instance
+   * @since 0.3
    */
   public static ConstructorProjection constructor(Class<?> type) {
     return new ConstructorProjection(type);
