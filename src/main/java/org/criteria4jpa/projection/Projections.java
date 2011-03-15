@@ -272,6 +272,26 @@ public class Projections {
   
   /**
    * <p>
+   * Creates a "constructor expression" projection for the specified type.
+   * </p>
+   *
+   * <p>
+   * The caller must add child projections to this projection by calling
+   * {@link ConstructorProjection#add(Projection)}. The child projections must
+   * match a constructor of the <i>type</i> supplied during creation of the
+   * projection.
+   * </p>
+   *
+   * @param type
+   *          The class to use for the constructor expression.
+   * @return new projection instance
+   */
+  public static ConstructorProjection constructor(Class<?> type) {
+    return new ConstructorProjection(type);
+  }
+
+  /**
+   * <p>
    * Creates a "count distinct" projection for the specified relative path.
    * </p>
    * 
