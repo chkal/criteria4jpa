@@ -13,7 +13,7 @@
 
     <!-- Criteria4JPA development -->
     <release version="development" date="not released yet" description="Current development version">
-      <action dev="chkal" type="add" issue="1">
+      <action dev="chkal" type="add">
         Updated path projections to support grouping
       </action>
       <action dev="chkal" type="add">
