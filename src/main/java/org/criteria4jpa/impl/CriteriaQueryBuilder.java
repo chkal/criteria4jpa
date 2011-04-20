@@ -99,6 +99,22 @@ public class CriteriaQueryBuilder {
     return query;
   }
   
+  /**
+   * Creates a human-readable representation of the query that will be created
+   * from this builder
+   */
+  public String createQueryDebugString() {
+
+    // create query
+    String queryString = createQueryString();
+
+    // create list of parameters
+    List<Object> parameterValues = getQueryParametersAsList();
+
+    // create debug string
+    return QueryLogHelper.createQueryLogMessage(queryString, parameterValues);
+
+  }
 
   public String createQueryString() {
     
