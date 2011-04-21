@@ -136,7 +136,7 @@ public class CriteriaImpl implements Criteria {
   
   @Override
   public String toString() {
-    return new CriteriaQueryBuilder(null, this).createQueryDebugString();
+    return new CriteriaQueryBuilder(this).createQueryDebugString();
   }
   
   /*
@@ -144,8 +144,8 @@ public class CriteriaImpl implements Criteria {
    */
 
   private Query buildQuery() {
-    CriteriaQueryBuilder queryBuilder = new CriteriaQueryBuilder(entityManager, this);
-    return queryBuilder.createQuery();
+    CriteriaQueryBuilder queryBuilder = new CriteriaQueryBuilder(this);
+    return queryBuilder.createQuery(entityManager);
   }
 
   /*

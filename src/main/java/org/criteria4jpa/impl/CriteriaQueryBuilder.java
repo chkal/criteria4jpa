@@ -23,8 +23,6 @@ public class CriteriaQueryBuilder {
   
   private final Logger queryLogger = Logger.getLogger("org.criteria4jpa.queries");
 
-  private final EntityManager entityManager;
-  
   private final CriteriaImpl rootCriteria;
   
   private final Map<Criteria, String> criterionToAliasMap = 
@@ -32,8 +30,7 @@ public class CriteriaQueryBuilder {
   
   private int positionalParameterCounter = 1;
   
-  public CriteriaQueryBuilder(EntityManager entityManager, CriteriaImpl rootCriteria) {
-    this.entityManager = entityManager;
+  public CriteriaQueryBuilder(CriteriaImpl rootCriteria) {
     this.rootCriteria = rootCriteria;
     buildCriterionToAliasMap();
   }
@@ -64,7 +61,7 @@ public class CriteriaQueryBuilder {
     }
   }
 
-  public Query createQuery() {
+  public Query createQuery(EntityManager entityManager) {
   
     // create for generate query
     String queryString = createQueryString();
