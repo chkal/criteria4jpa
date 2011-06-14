@@ -64,6 +64,28 @@ public interface Criteria {
   }
 
   /**
+   * The fetch mode for use with {@link Criteria#setFetchMode(String, FetchMode)}
+   */
+  public enum FetchMode {
+
+    /**
+     * The default fetch mode.
+     */
+    DEFAULT,
+    
+    /**
+     * Do an INNER JOIN FETCH
+     */
+    INNER_FETCH_JOIN,
+    
+    /**
+     * Do a LEFT OUTER FETCH JOIN
+     */
+    LEFT_OUTER_FETCH_JOIN
+    
+  }
+
+  /**
    * Returns the alias of the entity referred to by this criteria instance.
    *
    * @return The alias for the entity.
@@ -218,5 +240,17 @@ public interface Criteria {
    */
   public Criteria setProjection(Projection projection);
 
+  /**
+   * Set the fetch mode for the given associated entity named by the supplied
+   * <i>path expression</i>. This method is typically used to do fetch joins on
+   * associated entities.
+   * 
+   * @param relativePath
+   *          The path expression to the associated entity or collection
+   * @param mode
+   *          The fetch mode to use
+   * @return this (builder pattern)
+   */
+  public Criteria setFetchMode(String relativePath, FetchMode mode);
 
 }

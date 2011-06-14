@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.criteria4jpa.Criteria;
+import org.criteria4jpa.Criteria.FetchMode;
 import org.criteria4jpa.Criteria.JoinType;
 import org.criteria4jpa.criterion.Criterion;
 import org.criteria4jpa.order.Order;
@@ -183,6 +184,33 @@ public class CriteriaQueryBuilder {
       builder.append( joinPath );
       builder.append(' ');
       builder.append( getRequiredAlias(subcriteria) );
+    }
+    
+    for(MetaEntry<PathFetchMode> fetchModeEntry : rootCriteria.getFetchTypeList()) {
+      
+      PathFetchMode pathFetchMode = fetchModeEntry.getEntry();
+
+      if(pathFetchMode.getFetchMode() == FetchMode.DEFAULT) {
+        continue;
+      }
+      
+      // absolute join path
+      String joinPath = getAbsolutePath(fetchModeEntry.getCriteria(), pathFetchMode.getRelativePath());
+
+      // append correct join expression
+      if(pathFetchMode.getFetchMode() == FetchMode.INNER_FETCH_JOIN) {
+        builder.append(" JOIN FETCH ");
+      }
+      else if(pathFetchMode.getFetchMode() == FetchMode.LEFT_OUTER_FETCH_JOIN) {
+        builder.append(" LEFT JOIN FETCH ");
+      }
+      else {
+        throw new IllegalStateException("Unsupported FetchType: "+pathFetchMode.getFetchMode());
+      }
+    
+      builder.append( joinPath );
+
+      // 4.4.5.3: No alias allowed for fetch joins
     }
     
     // return result

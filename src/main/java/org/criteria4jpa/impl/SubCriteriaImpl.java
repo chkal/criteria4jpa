@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.criteria4jpa.Criteria;
+import org.criteria4jpa.Criteria.FetchMode;
 import org.criteria4jpa.criterion.Criterion;
 import org.criteria4jpa.order.Order;
 import org.criteria4jpa.projection.Projection;
@@ -92,6 +93,11 @@ public class SubCriteriaImpl implements Criteria {
   
   public Criteria setProjection(Projection projection) {
     root.setProjection(this, projection);
+    return this;
+  }
+  
+  public Criteria setFetchMode(String relativePath, FetchMode fetchMode) {
+    root.setFetchMode(this, relativePath, fetchMode);
     return this;
   }
 

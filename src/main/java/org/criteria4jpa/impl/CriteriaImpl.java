@@ -22,6 +22,7 @@ public class CriteriaImpl implements Criteria {
   // properties
   private final List<MetaEntry<Criterion>> criterionList = new ArrayList<MetaEntry<Criterion>>();
   private final List<MetaEntry<Order>> orderList = new ArrayList<MetaEntry<Order>>();
+  private final List<MetaEntry<PathFetchMode>> fetchTypeList = new ArrayList<MetaEntry<PathFetchMode>>();
   private final List<SubCriteriaImpl> subcriteriaList = new ArrayList<SubCriteriaImpl>();
   private MetaEntry<Projection> projectionEntry;
   private Integer maxResults;
@@ -63,6 +64,12 @@ public class CriteriaImpl implements Criteria {
     projectionEntry = new MetaEntry<Projection>(criteria, projection);
   }
   
+  public Criteria setFetchMode(Criteria criteria, String relativePath, FetchMode fetchMode) {
+    this.fetchTypeList.add( new MetaEntry<PathFetchMode>(criteria, 
+        new PathFetchMode(relativePath, fetchMode)) );
+    return this;
+  }
+
   /*
    * interface impl
    */
@@ -108,6 +115,10 @@ public class CriteriaImpl implements Criteria {
     return this;
   }
   
+  public Criteria setFetchMode(String relativePath, FetchMode fetchMode) {
+    this.setFetchMode(this, relativePath, fetchMode);
+    return this;
+  }
   
   /*
    * execute query
@@ -182,6 +193,10 @@ public class CriteriaImpl implements Criteria {
 
   public MetaEntry<Projection> getProjectionEntry() {
     return projectionEntry;
+  }
+
+  public List<MetaEntry<PathFetchMode>> getFetchTypeList() {
+    return fetchTypeList;
   }
 
 }
