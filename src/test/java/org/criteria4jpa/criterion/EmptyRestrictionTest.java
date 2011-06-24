@@ -19,7 +19,6 @@ public class EmptyRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testIsEmptyRestriction() {
     
     // build criteria
@@ -38,7 +37,6 @@ public class EmptyRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testIsNotEmptyRestriction() {
     
     // build criteria

@@ -18,7 +18,6 @@ public class MultipleOrderByTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testMultiLevelOrderBy() {
     
     // build criteria

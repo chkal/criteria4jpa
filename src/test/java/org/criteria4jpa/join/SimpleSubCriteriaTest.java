@@ -20,7 +20,6 @@ public class SimpleSubCriteriaTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleJoinOnCollection() {
     
     // build criteria
@@ -42,7 +41,6 @@ public class SimpleSubCriteriaTest extends AbstractIntegrationTest {
 
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleDoubleJoinWithoutDistinct() {
     
     // build criteria
@@ -69,7 +67,6 @@ public class SimpleSubCriteriaTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleDoubleJoinWithDistinct() {
     
     // build criteria

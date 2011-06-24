@@ -19,7 +19,6 @@ public class NotRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testNotRestrictionOnEquals() {
     
     // build criteria
@@ -38,7 +37,6 @@ public class NotRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testNotRestrictionOnBetween() {
     
     // build criteria

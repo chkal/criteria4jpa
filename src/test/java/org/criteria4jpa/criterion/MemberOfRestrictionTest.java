@@ -19,7 +19,6 @@ public class MemberOfRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testMemberOfRestrictionWithMatch() {
     
     // load a address that we will search for
@@ -43,7 +42,6 @@ public class MemberOfRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testMemberOfRestrictionWithoutMatch() {
     
     // load a address that we will search for
@@ -65,7 +63,6 @@ public class MemberOfRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testNegatedMemberOfRestriction() {
     
     // load a address that we will search for
@@ -90,7 +87,6 @@ public class MemberOfRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testMemberOfRestrictionNegatedTwice() {
     
     // FIXME: skip this test for OpenJPA because of OpenJPA bug 

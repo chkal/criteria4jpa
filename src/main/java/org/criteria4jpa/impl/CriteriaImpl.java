@@ -125,7 +125,7 @@ public class CriteriaImpl implements Criteria {
    */
   
   @SuppressWarnings("unchecked")
-  public List getResultList() {
+  public <E> List<E> getResultList() {
     return buildQuery().getResultList();
   }
   

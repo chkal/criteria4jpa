@@ -18,7 +18,6 @@ public class SingleOrderByTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSingleLevelOrderByAscending() {
     
     // build criteria
@@ -38,7 +37,6 @@ public class SingleOrderByTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testSingleLevelOrderByDescending() {
     
     // build criteria

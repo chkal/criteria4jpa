@@ -138,8 +138,7 @@ public interface Criteria {
    *
    * @return The list of matched query results.
    */
-  @SuppressWarnings("unchecked")
-  public List getResultList();
+  public <E> List<E> getResultList();
 
   
   /**

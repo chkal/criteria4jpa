@@ -20,7 +20,6 @@ public class LikeRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleLikeRestriction() {
     
     // create criteria
@@ -38,7 +37,6 @@ public class LikeRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testLikeRestrictionWithExactMatchMode() {
     
     // create criteria
@@ -55,7 +53,6 @@ public class LikeRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testLikeRestrictionWithStartMatchMode() {
     
     // create criteria
@@ -73,7 +70,6 @@ public class LikeRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testLikeRestrictionWithEndMatchMode() {
     
     // create criteria
@@ -91,7 +87,6 @@ public class LikeRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testLikeRestrictionWithAnywhereMatchMode() {
     
     // create criteria

@@ -2,9 +2,7 @@ package org.criteria4jpa.impl;
 
 import java.util.List;
 
-
 import org.criteria4jpa.Criteria;
-import org.criteria4jpa.Criteria.FetchMode;
 import org.criteria4jpa.criterion.Criterion;
 import org.criteria4jpa.order.Order;
 import org.criteria4jpa.projection.Projection;
@@ -48,8 +46,7 @@ public class SubCriteriaImpl implements Criteria {
     return this;
   }
 
-  @SuppressWarnings("unchecked")
-  public List getResultList() {
+  public <E> List<E> getResultList() {
     return root.getResultList();
   }
 

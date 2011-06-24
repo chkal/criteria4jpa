@@ -19,7 +19,6 @@ public class InRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleInRestrictionWithArray() {
     
     // create criteria
@@ -40,7 +39,6 @@ public class InRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleInRestrictionWithCollection() {
     
     // create criteria
@@ -61,7 +59,6 @@ public class InRestrictionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleInRestrictionArrayWithOneValue() {
     
     // create criteria

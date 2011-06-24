@@ -19,7 +19,6 @@ public class JunctionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleConjunction() {
     
     // build criteria
@@ -48,7 +47,6 @@ public class JunctionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testAndRestriction() {
     
     // build criteria
@@ -78,7 +76,6 @@ public class JunctionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testSimpleDisjunction() {
     
     // build criteria
@@ -106,7 +103,6 @@ public class JunctionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testOrRestriction() {
     
     // build criteria
@@ -135,7 +131,6 @@ public class JunctionTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testNestedJunctions() {
     
     // build criteria

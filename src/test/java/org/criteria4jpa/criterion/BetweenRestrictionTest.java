@@ -35,7 +35,6 @@ public class BetweenRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testBetweenRestrictionMultipleResults() {
     
     // create criteria
@@ -55,7 +54,6 @@ public class BetweenRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testBetweenNegatedRestriction() {
     
     // create criteria
@@ -74,7 +72,6 @@ public class BetweenRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testBetweenNegatedTwiceRestriction() {
     
     // create criteria

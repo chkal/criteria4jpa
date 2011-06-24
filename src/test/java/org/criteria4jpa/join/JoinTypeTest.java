@@ -19,7 +19,6 @@ public class JoinTypeTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testDefaultJoinType() {
     
     // build criteria
@@ -36,7 +35,6 @@ public class JoinTypeTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testInnerJoin() {
     
     // build criteria
@@ -53,7 +51,6 @@ public class JoinTypeTest extends AbstractIntegrationTest {
   }
   
   @Test
-  @SuppressWarnings("unchecked")
   public void testLeftOuterJoin() {
     
     // build criteria

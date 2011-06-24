@@ -38,7 +38,6 @@ public class EqualsRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testEqualsRestrictionMultipleResults() {
     
     // create criteria
@@ -56,7 +55,6 @@ public class EqualsRestrictionTest extends AbstractIntegrationTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   public void testAllEqualsRestriction() {
     
     // build map for allEq() test

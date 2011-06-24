@@ -12,7 +12,6 @@ import org.criteria4jpa.projection.Projections;
 import org.hibernate.LazyInitializationException;
 import org.testng.annotations.Test;
 
-@SuppressWarnings("unchecked")
 public class FetchJoinTypeTest extends AbstractIntegrationTest {
   
   public FetchJoinTypeTest() {
