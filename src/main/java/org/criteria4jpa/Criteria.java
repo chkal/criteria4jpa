@@ -136,6 +136,7 @@ public interface Criteria {
    * Generates a {@link Query} from the {@link Criteria} instances
    * and calls {@link Query#getResultList()}.
    *
+   * @param <E> The expected return type
    * @return The list of matched query results.
    */
   public <E> List<E> getResultList();
@@ -147,9 +148,10 @@ public interface Criteria {
    * and calls {@link Query#getSingleResult()} on it.
    * </p>
    *
+   * @param <E> The expected return type
    * @return result of {@link Query#getSingleResult()}
    */
-  public Object getSingleResult();
+  public <E> E getSingleResult();
 
   /**
    * <p>
@@ -167,9 +169,10 @@ public interface Criteria {
    * Use {@link #getSingleResult()} if you want standard JPA behavior.
    * </p>
    *
+   * @param <E> The expected return type
    * @return result of {@link Query#getSingleResult()} or <code>null</code>
    */
-  public Object getSingleResultOrNull();
+  public <E> E getSingleResultOrNull();
   
   /**
    * Creates a subcriteria on the associated entity named by

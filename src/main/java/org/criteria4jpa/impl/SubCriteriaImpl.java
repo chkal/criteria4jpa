@@ -60,7 +60,7 @@ public class SubCriteriaImpl implements Criteria {
     return this;
   }
 
-  public Object getSingleResult() {
+  public <E> E getSingleResult() {
     return root.getSingleResult();
   }
 
