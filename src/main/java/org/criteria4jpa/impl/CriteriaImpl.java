@@ -134,7 +134,7 @@ public class CriteriaImpl implements Criteria {
     return (E) buildQuery().getSingleResult();
   }
 
-  public Object getSingleResultOrNull() {
+  public <E> E getSingleResultOrNull() {
     try {
       return getSingleResult();
     } catch (NoResultException e) {
