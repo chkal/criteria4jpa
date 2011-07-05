@@ -134,9 +134,10 @@ public class CriteriaImpl implements Criteria {
     return (E) buildQuery().getSingleResult();
   }
 
+  @SuppressWarnings("unchecked")
   public <E> E getSingleResultOrNull() {
     try {
-      return getSingleResult();
+      return (E) getSingleResult();
     } catch (NoResultException e) {
       return null;
     }

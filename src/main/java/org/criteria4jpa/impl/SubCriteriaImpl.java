@@ -60,12 +60,14 @@ public class SubCriteriaImpl implements Criteria {
     return this;
   }
 
+  @SuppressWarnings("unchecked")
   public <E> E getSingleResult() {
-    return root.getSingleResult();
+    return (E) root.getSingleResult();
   }
 
+  @SuppressWarnings("unchecked")
   public <E> E getSingleResultOrNull() {
-    return root.getSingleResultOrNull();
+    return (E) root.getSingleResultOrNull();
   }
   
   public String getAlias() {
