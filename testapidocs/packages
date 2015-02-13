@@ -1,0 +1,8 @@
+org.criteria4jpa
+org.criteria4jpa.criterion
+org.criteria4jpa.join
+org.criteria4jpa.model
+org.criteria4jpa.order
+org.criteria4jpa.projection
+org.criteria4jpa.query
+org.criteria4jpa.util

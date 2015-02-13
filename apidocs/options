@@ -1,0 +1,24 @@
+-classpath
+'/home/ck/private/criteria4jpa/target/classes:/home/ck/.m2/repository/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/ck/private/criteria4jpa/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2011. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/ck/private/criteria4jpa/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Criteria4JPA 0.3-SNAPSHOT API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'Criteria4JPA 0.3-SNAPSHOT API'

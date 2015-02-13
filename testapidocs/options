@@ -1,0 +1,26 @@
+-classpath
+'/home/ck/private/criteria4jpa/target/classes:/home/ck/private/criteria4jpa/target/test-classes:/home/ck/.m2/repository/org/hibernate/hibernate-commons-annotations/3.1.0.GA/hibernate-commons-annotations-3.1.0.GA.jar:/home/ck/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/home/ck/.m2/repository/org/hibernate/hibernate-entitymanager/3.4.0.GA/hibernate-entitymanager-3.4.0.GA.jar:/home/ck/.m2/repository/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar:/home/ck/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/home/ck/.m2/repository/org/hibernate/hibernate-annotations/3.4.0.GA/hibernate-annotations-3.4.0.GA.jar:/home/ck/.m2/repository/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.jar:/home/ck/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ck/.m2/repository/org/testng/testng/5.10/testng-5.10-jdk15.jar:/home/ck/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ck/.m2/repository/org/slf4j/slf4j-simple/1.5.8/slf4j-simple-1.5.8.jar:/home/ck/.m2/repository/org/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar:/home/ck/.m2/repository/org/hibernate/hibernate-core/3.3.0.SP1/hibernate-core-3.3.0.SP1.jar:/home/ck/.m2/repository/javassist/javassist/3.4.GA/javassist-3.4.GA.jar:/home/ck/.m2/repository/org/hibernate/ejb3-persistence/1.0.2.GA/ejb3-persistence-1.0.2.GA.jar:/home/ck/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/home/ck/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/home/ck/.m2/repository/org/dbunit/dbunit/2.4.5/dbunit-2.4.5.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/ck/private/criteria4jpa/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2011. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/ck/private/criteria4jpa/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Criteria4JPA 0.3-SNAPSHOT Test API'
+-link
+'../apidocs'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'Criteria4JPA 0.3-SNAPSHOT Test API'
